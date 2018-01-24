@@ -14,5 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
 
 Route::get('/employee', 'Employee\EditController@index');

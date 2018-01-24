@@ -31,7 +31,7 @@
 
 </head>
 <body>
-
+<a href="{{route('animalcategories.create')}}" class="btn btn-success">Add</a>
 <div class="wrapper">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
 
