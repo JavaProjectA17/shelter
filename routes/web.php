@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::resource('/kind_of_animals', 'Kind_of_animalsController');
+    Route::resource('/animals', 'AnimalsController');
+});
