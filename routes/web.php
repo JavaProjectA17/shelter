@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
 
+Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
 
-    Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
+Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
 
 Route::get('/employee', 'Employee\EditController@index');

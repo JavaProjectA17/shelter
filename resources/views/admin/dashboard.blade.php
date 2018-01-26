@@ -43,7 +43,7 @@
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="#" class="logo">
+        <a href="{{route('admin.index')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>N</b>A</span>
             <!-- logo for regular state and mobile devices -->
@@ -87,16 +87,16 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active treeview">
-                    <a href="#">
+                    <a href="{{route('admin.index')}}">
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         <span class="pull-right-container">
 
             </span>
                     </a>
                 </li>
-                <li class="treeview">
+                <li >
                     <a href="#">
-                        <i class="fa fa-files-o"></i>
+                        <i class="fa  fa-tags"></i>
                         <span>News</span>
                         <span class="pull-right-container">
                         </span>
@@ -104,22 +104,22 @@
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa fa-th"></i> <span>Users</span>
+                        <i class="fa  fa-users"></i> <span>Users</span>
                         <span class="pull-right-container">
             </span>
                     </a>
                 </li>
-                <li class="treeview">
-                    <a href="#">
-                        <i class="fa fa-laptop"></i>
+                <li>
+                    <a href="{{route('animalcategories.index')}}">
+                        <i class="fa fa-list"></i>
                         <span>Categories</span>
                         <span class="pull-right-container">
             </span>
                     </a>
                 </li>
-                <li class="treeview">
+                <li >
                     <a href="#">
-                        <i class="fa fa-edit"></i> <span>Animal</span>
+                        <i class="fa fa-qq"></i> <span>Animal</span>
                         <span class="pull-right-container">
             </span>
                     </a>
@@ -132,7 +132,9 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
+            //TO DO  content
 
+        @yield('content')
 
         <!-- Main content -->
         <!-- /.content -->
@@ -178,7 +180,7 @@
     <!-- FastClick -->
     <script src="/bower_components/fastclick/lib/fastclick.js"></script>
     <!-- AdminLTE App -->
-    <script src="/dist/js/adminlte.min.js"></script>
+    {{--<script src="/dist/js/adminlte.min.js"></script>--}}
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/dist/js/pages/dashboard.js"></script>
     <!-- AdminLTE for demo purposes -->
