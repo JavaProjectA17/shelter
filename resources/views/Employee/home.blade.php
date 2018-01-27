@@ -31,7 +31,6 @@
 
 </head>
 <body>
-
 <div class="wrapper">
     <div class="sidebar" data-background-color="white" data-active-color="danger">
 
@@ -60,24 +59,24 @@
                         <p>Edit</p>
                     </a>
                 </li>
-                {{--<li>--}}
-                {{--<a href="table.html">--}}
-                {{--<i class="ti-view-list-alt"></i>--}}
-                {{--<p>Table List</p>--}}
-                {{--</a>--}}
-                {{--</li>--}}
+                <li>
+                <a href="table.html">
+                <i class="ti-view-list-alt"></i>
+                <p>Password</p>
+                </a>
+                </li>
                 {{--<li>--}}
                 {{--<a href="typography.html">--}}
                 {{--<i class="ti-text"></i>--}}
                 {{--<p>Typography</p>--}}
                 {{--</a>--}}
                 {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="icons.html">--}}
-                {{--<i class="ti-pencil-alt2"></i>--}}
-                {{--<p>Icons</p>--}}
-                {{--</a>--}}
-                {{--</li>--}}
+                <li>
+                <a href="icons.html">
+                <i class="ti-pencil-alt2"></i>
+                <p>Animals</p>
+                </a>
+                </li>
                 {{--<li>--}}
                 {{--<a href="maps.html">--}}
                 {{--<i class="ti-map"></i>--}}
@@ -99,7 +98,7 @@
             </ul>
         </div>
     </div>
-
+Edit,tablelist icons
     <div class="main-panel">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -112,38 +111,38 @@
                     </button>
                     <a class="navbar-brand" href="#">Shelter</a>
                 </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-panel"></i>
-                                <p>Stats</p>
-                            </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <i class="ti-bell"></i>
-                                <p class="notification">5</p>
-                                <p>Notifications</p>
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Notification 1</a></li>
-                                <li><a href="#">Notification 2</a></li>
-                                <li><a href="#">Notification 3</a></li>
-                                <li><a href="#">Notification 4</a></li>
-                                <li><a href="#">Another notification</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="ti-settings"></i>
-                                <p>Settings</p>
-                            </a>
-                        </li>
-                    </ul>
+                {{--<div class="collapse navbar-collapse">--}}
+                    {{--<ul class="nav navbar-nav navbar-right">--}}
+                        {{--<li>--}}
+                            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                                {{--<i class="ti-panel"></i>--}}
+                                {{--<p>Stats</p>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li class="dropdown">--}}
+                            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                                {{--<i class="ti-bell"></i>--}}
+                                {{--<p class="notification">5</p>--}}
+                                {{--<p>Notifications</p>--}}
+                                {{--<b class="caret"></b>--}}
+                            {{--</a>--}}
+                            {{--<ul class="dropdown-menu">--}}
+                                {{--<li><a href="#">Notification 1</a></li>--}}
+                                {{--<li><a href="#">Notification 2</a></li>--}}
+                                {{--<li><a href="#">Notification 3</a></li>--}}
+                                {{--<li><a href="#">Notification 4</a></li>--}}
+                                {{--<li><a href="#">Another notification</a></li>--}}
+                            {{--</ul>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
+                            {{--<a href="#">--}}
+                                {{--<i class="ti-settings"></i>--}}
+                                {{--<p>Settings</p>--}}
+                            {{--</a>--}}
+                        {{--</li>--}}
+                    {{--</ul>--}}
 
-                </div>
+                {{--</div>--}}
             </div>
         </nav>
 

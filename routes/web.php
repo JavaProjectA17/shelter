@@ -13,6 +13,7 @@
 /*
 Route::get('/', function () {
     return view('welcome');
+<<<<<<< HEAD
 });*/
 
 Route::get('/employee', 'Employee\EditController@index');
@@ -24,3 +25,18 @@ Route::get('/', ['as' => 'index', 'uses' => 'User\MainController@index']);
 Route::get('/about', ['as' => 'about', 'uses' => 'User\MainController@about']);
 Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
+
+
+
+Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
+
+Route::get('/employee', 'Employee\EditController@index');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
+    Route::resource('/kind_of_animals', 'Kind_of_animalsController');
+    Route::resource('/animals', 'AnimalsController');
+});
