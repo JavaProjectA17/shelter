@@ -10,9 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 Route::get('/employee', 'Employee\EditController@index');
+
+
+
+/*main*/
+Route::get('/', ['as' => 'index', 'uses' => 'User\MainController@index']);
+Route::get('/about', ['as' => 'about', 'uses' => 'User\MainController@about']);
+Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
+Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
