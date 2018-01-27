@@ -26,6 +26,10 @@ Route::get('/about', ['as' => 'about', 'uses' => 'User\MainController@about']);
 Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
 
+Route::get('/add_new_cattery', function(){
+    return view('main/add_new_cattery');
+});
+
 
 
 Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
