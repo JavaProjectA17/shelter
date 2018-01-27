@@ -19,7 +19,7 @@
                     {{ $category->title}}
                 </td>
                 <td>
-                    {{link_to(route('animalcategories.edit', ['id' => $category->id]), 'EDIT'}}
+                    {{link_to(route('animalcategories.edit', ['id' => $category->id]), 'EDIT')}}
                 </td>
             </tr>
 
