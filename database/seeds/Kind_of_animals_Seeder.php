@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Kind_of_animal;
 
-class DatabaseSeeder extends Seeder
+class Kind_of_animals_Seeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,7 +12,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         $this->call(Kind_of_animals_Seeder::class);
-         $this->call(AnimalsSeeder::class);
+        Kind_of_animal::create([
+            'kind_of_the_animal'=>'Bugs'
+        ]);
     }
 }
