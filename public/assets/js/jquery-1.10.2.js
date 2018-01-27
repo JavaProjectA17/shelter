@@ -5296,7 +5296,7 @@ jQuery.event = {
 				}
 			},
 
-			// For cross-browser consistency, don't fire native .click() on links
+			// For cross-browser consistency, don't fire native .click() on sections
 			_default: function( event ) {
 				return jQuery.nodeName( event.target, "a" );
 			}
@@ -8472,7 +8472,7 @@ jQuery.ajaxTransport( "script", function(s) {
 	if ( s.crossDomain ) {
 
 		var script,
-			head = document.head || jQuery("head")[0] || document.documentElement;
+			head = document.head || jQuery("links")[0] || document.documentElement;
 
 		return {
 
