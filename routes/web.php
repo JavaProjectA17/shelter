@@ -10,15 +10,6 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-/*
-Route::get('/', function () {
-    return view('welcome');
-<<<<<<< HEAD
-});*/
-
-Route::get('/employee', 'Employee\EditController@index');
-
-
 
 /*main*/
 Route::get('/', ['as' => 'index', 'uses' => 'User\MainController@index']);
@@ -28,7 +19,6 @@ Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@cont
 
 Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'Employee\ShelterController@create']);
 Route::post('/send_form', ['as' => 'send_form', 'uses' => 'Employee\ShelterController@send_form']);
-
 
 Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
 

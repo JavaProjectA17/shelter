@@ -28,9 +28,14 @@ class ShelterController extends Controller
      */
     public function send_form(Request $request)
     {
-//        dd(Auth::user());
-//        dd($request);
-       // echo "fsdfsdf";
+        $shelter = new Shelter;
+        $shelter->user_id = Auth::user() -> id;
+        $shelter->nameselter = $request-> nameselter;
+        $shelter->address = $request-> address;
+        $shelter->phone = $request-> phone;
+        $shelter->description = $request-> description;
+        $shelter->save();
+        
         return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
     }
 
@@ -42,7 +47,7 @@ class ShelterController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**

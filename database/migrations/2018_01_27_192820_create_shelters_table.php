@@ -18,10 +18,11 @@ class CreateSheltersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('approve')->default(False);
-            $table->string('name_shelter');
-            $table->string('address');
-            $table->string('description');
-            $table->string('phone');
+            $table->string('nameselter', 100);
+            $table->string('address',100);
+            $table->text('description')->nullable();
+            $table->string('phone',100);
+            $table->timestamps();
         });
     }
 
