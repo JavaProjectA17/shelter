@@ -31,7 +31,7 @@ class ShelterController extends Controller
 //        dd(Auth::user());
 //        dd($request);
        // echo "fsdfsdf";
-        return view('main.add_new_shelter.success');
+        return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
     }
 
     /**
