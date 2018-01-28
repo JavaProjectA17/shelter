@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateKindOfAnimalsTable extends Migration
+class CreateKindsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateKindOfAnimalsTable extends Migration
      */
     public function up()
     {
-        Schema::create('kind_of_animals', function (Blueprint $table) {
+        Schema::create('kinds', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('kind_of_the_animal');
+            $table->string('kind');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateKindOfAnimalsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kind_of_animals');
+        Schema::dropIfExists('kinds');
     }
 }

@@ -30,8 +30,6 @@ Route::get('/add_new_cattery', function(){
     return view('main/add_new_cattery');
 });
 
-
-
 Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
 
 Route::get('/employee', 'Employee\EditController@index');
@@ -40,7 +38,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
-    Route::resource('/kind_of_animals', 'Kind_of_animalsController');
-    Route::resource('/animals', 'AnimalsController');
+//*
+//*   admin routes
+//*
+
+Route::get('/admin', 'HomeController@admin');
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::resource('/kinds', 'Admin\KindsController');
+    Route::resource('/animals', 'Admin\AnimalsController');
 });
