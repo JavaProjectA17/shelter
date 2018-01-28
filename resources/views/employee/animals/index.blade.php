@@ -19,6 +19,8 @@
                                 <th>Image</th>
                                 <th>About</th>
                                 <th>Birthday</th>
+                                <th>Category</th>
+                                <th>Shelter</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -29,7 +31,8 @@
                                     <td>{{ $animal->pet_image }}</td>
                                     <td>{{ $animal->about }}</td>
                                     <td>{{ $animal->birth_date }}</td>
-{{--                                    <td>{{ $animal->category->title }}</td>--}}
+                                    <td>{{ $animal->category() }}</td>
+                                    <td>{{ $animal->shelter() }}</td>
                                     <td>
                                         <a href="{{ route('employee.animals.edit', $animal->id) }}" class="btn btn-default">Edit</a>
                                         <form action="{{ route('employee.animals.destroy', $animal->id) }}" method="POST"
