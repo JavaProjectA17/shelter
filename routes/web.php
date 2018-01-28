@@ -26,8 +26,9 @@ Route::get('/about', ['as' => 'about', 'uses' => 'User\MainController@about']);
 Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
 
-Route::get('/add_new_cattery', function(){
-    return view('main/add_new_cattery');
+Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'Employee\ShelterController@create']);
+Route::post('send_form', function () {
+    return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
 });
 
 Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
