@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('employee.home')
 
 @section('content')
     <div class="container">
@@ -15,7 +15,7 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ route('animals.store') }}" method="post">
+                        <form action="{{ route('employee.animals.store') }}" method="post">
                             {{ csrf_field() }}
                             Pet name:
                             <br />
@@ -28,7 +28,17 @@
                             About:
                             <br />
                             <input type="text" name="about" value="{{ old('about') }}" />
-                            z
+                            <br /><br />
+                            Animal Category
+                            <select name="category_id" class="form-control" style="width: 17%">
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->title}}</option>
+                                @endforeach
+                            </select>
+                            Birthday:
+                            <br />
+                            <input type="text" name="birth_date" value="{{ old('birth_date') }}" />
+                            <br /><br />
                             <input type="submit" value="Submit" class="btn btn-default" />
                         </form>
                     </div>

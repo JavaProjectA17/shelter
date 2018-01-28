@@ -44,3 +44,10 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function () {
     Route::resource('/kind_of_animals', 'Kind_of_animalsController');
     Route::resource('/animals', 'AnimalsController');
 });
+//Route::group(['middleware' => 'auth', 'prefix' => 'employee'], function () {
+//    Route::resource('/animals', 'Employee\AnimalsController');
+//});
+
+Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
+    Route::resource('animals', 'AnimalsController');
+});

@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Employee;
 
+use App\Http\Controllers\Controller;
 use App\Animal;
 use App\Http\Requests\StoreAnimalRequest;
+use App\AnimalCategory;
 use Illuminate\Http\Request;
 
 class AnimalsController extends Controller
@@ -15,8 +17,8 @@ class AnimalsController extends Controller
      */
     public function index()
     {
-        $animals = Animal::paginate(5);//all();
-        return view('animals.index', compact('animals'));
+        $animals = Animal::paginate(5);//all()
+        return view('employee.animals.index', compact('animals'));
     }
 
     /**
@@ -26,7 +28,8 @@ class AnimalsController extends Controller
      */
     public function create()
     {
-        return view('animals.create');
+        $categories = AnimalCategory::all();
+        return view('employee.animals.create',compact('categories'));
     }
 
     /**
@@ -38,7 +41,7 @@ class AnimalsController extends Controller
     public function store(StoreAnimalRequest $request)
     {
         Animal::create($request->all());
-        return redirect()->route('animals.index')->with(['message' => 'Pet added successfully']);
+        return redirect()->route('employee.animals.index')->with(['message' => 'Pet added successfully']);
     }
 
     /**
@@ -61,7 +64,8 @@ class AnimalsController extends Controller
     public function edit($id)
     {
         $animal = Animal::findOrFail($id);
-        return view('animals.edit', compact('animal'));
+        $categories = AnimalCategory::all();
+        return view('employee.animals.edit', compact('animal','categories'));
     }
 
     /**
@@ -75,7 +79,7 @@ class AnimalsController extends Controller
     {
         $animal = Animal::findOrFail($id);
         $animal->update($request->all());
-        return redirect()->route('animals.index')->with(['message' => 'Pet updated successfully']);
+        return redirect()->route('employee.animals.index')->with(['message' => 'Pet updated successfully']);
     }
 
     /**
@@ -88,6 +92,6 @@ class AnimalsController extends Controller
     {
         $animal = Animal::findOrFail($id);
         $animal->delete();
-        return redirect()->route('animals.index')->with(['message' => 'Pet deleted successfully']);
+        return redirect()->route('employee.animals.index')->with(['message' => 'Pet deleted successfully']);
     }
 }
