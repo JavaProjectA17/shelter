@@ -1,31 +1,35 @@
-@extends('layouts.app')
+@extends('admin.app')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Kind of animals</div>
+                    <div class="panel-heading">Animals</div>
 
                     <div class="panel-body">
                         @if (session('message'))
                             <div class="alert alert-info">{{ session('message') }}</div>
                         @endif
-                        <a href="{{ route('kind_of_animals.create') }}" class="btn btn-default">Add New Kind</a>
+                        <a href="{{ route('admin.animals.create') }}" class="btn btn-default">Add New Pet</a>
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>Kind of animal</th>
+                                <th>Pet name</th>
+                                <th>Image</th>
+                                <th>About</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($kind_of_animals as $kind_of_animal)
+                            @forelse($animals as $animal)
                                 <tr>
-                                    <td>{{ $kind_of_animal->kind_of_the_animal }}</td>
+                                    <td>{{ $animal->name }}</td>
+                                    <td>{{ $animal->image }}</td>
+                                    <td>{{ $animal->about }}</td>
                                     <td>
-                                        <a href="{{ route('kind_of_animals.edit', $kind_of_animal->id) }}" class="btn btn-default">Edit</a>
-                                        <form action="{{ route('kind_of_animals.destroy', $kind_of_animal->id) }}" method="POST"
+                                        <a href="{{ route('admin.animals.edit', $animal->id) }}" class="btn btn-default">Edit</a>
+                                        <form action="{{ route('admin.animals.destroy', $animal->id) }}" method="POST"
                                               style="display: inline"
                                               onsubmit="return confirm('Are you sure?');">
                                             <input type="hidden" name="_method" value="DELETE">
@@ -41,7 +45,7 @@
                             @endforelse
                             </tbody>
                         </table>
-                        {{ $kind_of_animals->links() }}
+                        {{ $animals->links() }}
                     </div>
                 </div>
             </div>

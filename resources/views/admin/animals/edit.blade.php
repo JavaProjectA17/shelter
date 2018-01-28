@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.app')
 
 @section('content')
     <div class="container">
@@ -15,20 +15,20 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ route('animals.update', $animal->id) }}" method="post">
+                        <form action="{{ route('admin.animals.update', $animals->id) }}" method="post">
                             <input type="hidden" name="_method" value="PUT">
                             {{ csrf_field() }}
                             Pet name:
                             <br />
-                            <input type="text" name="pet_name" value="{{ $animal->pet_name }}" />
+                            <input type="text" name="name" value="{{ $animals->name }}" />
                             <br /><br />
                             Pet Image:
                             <br />
-                            <input type="text" name="pet_image" value="{{ $animal->pet_image }}" />
+                            <input type="text" name="image" value="{{ $animals->image }}" />
                             <br /><br />
                             About:
                             <br />
-                            <input type="text" name="about" value="{{ $animal->about }}" />
+                            <input type="text" name="about" value="{{ $animals->about }}" />
                             <br /><br />
                             <input type="submit" value="Submit" class="btn btn-default" />
                         </form>

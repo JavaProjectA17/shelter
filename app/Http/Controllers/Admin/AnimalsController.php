@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreKindsRequest;
-use App\Kind;
+use App\Animal;
+use App\Http\Requests\StoreAnimalRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class KindsController extends Controller
+class AnimalsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class KindsController extends Controller
      */
     public function index()
     {
-        $kinds = Kind::paginate(5);//all();
-        return view('kinds.index', compact('kinds'));
+        $animals = Animal::paginate(5);
+        return view('admin.animals.index', compact('animals'));
     }
 
     /**
@@ -26,7 +27,7 @@ class KindsController extends Controller
      */
     public function create()
     {
-        return view('kinds.create');
+        return view('admin.animals.create');
     }
 
     /**
@@ -35,10 +36,10 @@ class KindsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKindsRequest $request)
+    public function store(StoreAnimalRequest $request)
     {
-        Kind::create($request->all());
-        return redirect()->route('kinds.index')->with(['message' => 'Kind added successfully']);
+        Animal::create($request->all());
+        return redirect()->route('admin.animals.index')->with(['message' => 'Pet added successfully']);
     }
 
     /**
@@ -60,8 +61,8 @@ class KindsController extends Controller
      */
     public function edit($id)
     {
-        $kind_of_animal = Kind::findOrFail($id);
-        return view('kinds.edit', compact('kind_of_animal'));
+        $animals = Animal::findOrFail($id);
+        return view('admin.animals.edit', compact('animals'));
     }
 
     /**
@@ -71,11 +72,11 @@ class KindsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreKindsRequest $request, $id)
+    public function update(StoreAnimalRequest $request, $id)
     {
-        $kind_of_animal = Kind::findOrFail($id);
-        $kind_of_animal->update($request->all());
-        return redirect()->route('kinds.index')->with(['message' => 'Kind updated successfully']);
+        $animals = Animal::findOrFail($id);
+        $animals->update($request->all());
+        return redirect()->route('admin.animals.index')->with(['message' => 'Pet updated successfully']);
     }
 
     /**
@@ -86,8 +87,8 @@ class KindsController extends Controller
      */
     public function destroy($id)
     {
-        $kind_of_animal = Kind::findOrFail($id);
-        $kind_of_animal->delete();
-        return redirect()->route('kinds.index')->with(['message' => 'Kind deleted successfully']);
+        $animals = Animal::findOrFail($id);
+        $animals->delete();
+        return redirect()->route('admin.animals.index')->with(['message' => 'Pet deleted successfully']);
     }
 }

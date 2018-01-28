@@ -24,8 +24,8 @@ class StoreAnimalRequest extends FormRequest
     public function rules()
     {
         return [
-            'pet_name' => 'required',
-            'pet_image' => 'required',
+            'name' => 'required',
+            'image' => 'required',
             'about' => 'required'
         ];
     }
