@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreKindsRequest;
-use App\Kind;
+use App\Http\Requests\StoreAnimalCategorysRequest;
+use App\AnimalCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class KindsController extends Controller
+class AnimalCategorysController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class KindsController extends Controller
      */
     public function index()
     {
-        $kinds = Kind::paginate(5);
-        return view('admin.kinds.index', compact('kinds'));
+        $animalcategorys = AnimalCategory::paginate(5);
+        return view('admin.animalcategorys.index', compact('animalcategorys'));
     }
 
     /**
@@ -27,7 +27,7 @@ class KindsController extends Controller
      */
     public function create()
     {
-        return view('admin.kinds.create');
+        return view('admin.animalcategorys.create');
     }
 
     /**
@@ -36,10 +36,10 @@ class KindsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreKindsRequest $request)
+    public function store(StoreAnimalCategorysRequest $request)
     {
-        Kind::create($request->all());
-        return redirect()->route('admin.kinds.index')->with(['message' => 'Kind added successfully']);
+        AnimalCategory::create($request->all());
+        return redirect()->route('admin.animalcategorys.index')->with(['message' => 'Category added successfully']);
     }
 
     /**
@@ -61,8 +61,8 @@ class KindsController extends Controller
      */
     public function edit($id)
     {
-        $kinds = Kind::findOrFail($id);
-        return view('admin.kinds.edit', compact('kinds'));
+        $animalcategorys = AnimalCategory::findOrFail($id);
+        return view('admin.animalcategorys.edit', compact('animalcategorys'));
     }
 
     /**
@@ -72,11 +72,11 @@ class KindsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreKindsRequest $request, $id)
+    public function update(StoreAnimalCategorysRequest $request, $id)
     {
-        $kinds = Kind::findOrFail($id);
-        $kinds->update($request->all());
-        return redirect()->route('admin.kinds.index')->with(['message' => 'Kind updated successfully']);
+        $animalcategorys = AnimalCategory::findOrFail($id);
+        $animalcategorys->update($request->all());
+        return redirect()->route('admin.animalcategorys.index')->with(['message' => 'Kind updated successfully']);
     }
 
     /**
@@ -87,8 +87,8 @@ class KindsController extends Controller
      */
     public function destroy($id)
     {
-        $kinds = Kind::findOrFail($id);
-        $kinds->delete();
-        return redirect()->route('admin.kinds.index')->with(['message' => 'Kind deleted successfully']);
+        $animalcategorys = AnimalCategory::findOrFail($id);
+        $animalcategorys->delete();
+        return redirect()->route('admin.animalcategorys.index')->with(['message' => 'Kind deleted successfully']);
     }
 }

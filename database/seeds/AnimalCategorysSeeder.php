@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Kind;
 
-class Kind_of_animals_Seeder extends Seeder
+class AnimalCategorysSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,7 +13,7 @@ class Kind_of_animals_Seeder extends Seeder
     public function run()
     {
         Kind::create([
-            'kind_of_the_animal'=>'Bugs'
+            'title'=>'Bugs'
         ]);
     }
 }

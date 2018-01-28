@@ -30,7 +30,7 @@ Route::get('/add_new_cattery', function(){
     return view('main/add_new_cattery');
 });
 
-Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
+
 
 Route::get('/employee', 'Employee\EditController@index');
 
@@ -42,9 +42,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*   admin routes
 //*
 
+//Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
+
 Route::get('/admin', 'HomeController@admin');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('/kinds', 'Admin\KindsController');
+    Route::resource('/animalcategorys', 'Admin\AnimalCategorysController');
     Route::resource('/animals', 'Admin\AnimalsController');
 });
