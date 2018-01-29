@@ -33,13 +33,31 @@
                             Animal Category
                             <select name="category_id" class="form-control" style="width: 17%">
                                 @foreach($categories as $category)
-                                    <option value="{{$category->id}}">{{$category->title}}</option>
+                                    <option value="{{$category->id}}"
+                                            @if ($animal->categoryName() == $category->title)
+                                                selected="selected"
+                                            @endif
+                                    >
+                                        {{$category->title}}
+                                    </option>
                                 @endforeach
                             </select>
                             Birthday:
                             <br />
-                            <input type="text" name="birth_date" value="{{ old('birth_date') }}" />
+                            <input type="text" name="birth_date" value="{{ $animal->birth_date }}" />
                             <br /><br />
+                            Animal Category
+                            <select name="shelter_id" class="form-control" style="width: 17%">
+                                @foreach($shelters as $shelter)
+                                    <option value="{{$shelter->id}}"
+                                            @if ($animal->shelterName() == $shelter->nameshelter)
+                                                selected="selected"
+                                            @endif
+                                    >
+                                        {{$shelter->nameshelter}}
+                                    </option>
+                                @endforeach
+                            </select>
                             <input type="submit" value="Submit" class="btn btn-default" />
                         </form>
                     </div>

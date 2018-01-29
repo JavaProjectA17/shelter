@@ -1,22 +1,3 @@
-{{--<!doctype html>--}}
-{{--<html lang="ru">--}}
-    {{--<head>--}}
-        {{--<title>Pet Club</title>--}}
-        {{--<meta charset="utf-8">--}}
-        {{--<link rel="icon" href="user/images/favicon.ico">--}}
-        {{--<link rel="stylesheet" href="user/css/style.css">--}}
-        {{--<script src="user/js/jquery.js"></script>--}}
-        {{--@yield('links')--}}
-    {{--</head>--}}
-
-    {{--<body class="page1">--}}
-    {{--@include('layouts.header')--}}
-
-        {{--@yield('content')--}}
-
-    {{--@include('layouts.footer')--}}
-    {{--</body>--}}
-{{--</html>--}}
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
@@ -55,7 +36,7 @@
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="/admin/kinds">Kind of animals</a></li>
+                        <li><a href="/admin/animalcategorys">Kind of animals</a></li>
                         <li><a href="/admin/animals">Animals</a></li>
                     </ul>
 

@@ -7,6 +7,7 @@ use App\Animal;
 use App\Http\Requests\StoreAnimalRequest;
 use App\AnimalCategory;
 use Illuminate\Http\Request;
+use App\Shelter;
 
 class AnimalsController extends Controller
 {
@@ -29,7 +30,8 @@ class AnimalsController extends Controller
     public function create()
     {
         $categories = AnimalCategory::all();
-        return view('employee.animals.create',compact('categories'));
+        $shelters = Shelter::all();
+        return view('employee.animals.create',compact('categories','shelters'));
     }
 
     /**
@@ -65,7 +67,8 @@ class AnimalsController extends Controller
     {
         $animal = Animal::findOrFail($id);
         $categories = AnimalCategory::all();
-        return view('employee.animals.edit', compact('animal','categories'));
+        $shelters = Shelter::all();
+        return view('employee.animals.edit', compact('animal','categories','shelters'));
     }
 
     /**

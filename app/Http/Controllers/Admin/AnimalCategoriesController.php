@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\StoreAnimalCategoriesRequest;
 use App\AnimalCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,8 +16,8 @@ class AnimalCategoriesController extends Controller
      */
     public function index()
     {
-        $categories =  AnimalCategory::all();
-        return view('admin.animalcategories.index', ['categories'=>$categories]);
+        $animalcategorys = AnimalCategory::paginate(5);
+        return view('admin.animalcategorys.index', compact('animalcategorys'));
     }
 
     /**
@@ -26,7 +27,7 @@ class AnimalCategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.animalcategories.create');
+        return view('admin.animalcategorys.create');
     }
 
     /**
@@ -35,11 +36,10 @@ class AnimalCategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAnimalCategoriesRequest $request)
     {
-        $category = new AnimalCategory($request->all());
-        $category->save();
-        return redirect()->route('animalcategories.index');
+        AnimalCategory::create($request->all());
+        return redirect()->route('admin.animalcategorys.index')->with(['message' => 'Category added successfully']);
     }
 
     /**
@@ -61,7 +61,8 @@ class AnimalCategoriesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $animalcategorys = AnimalCategory::findOrFail($id);
+        return view('admin.animalcategorys.edit', compact('animalcategorys'));
     }
 
     /**
@@ -71,9 +72,11 @@ class AnimalCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreAnimalCategoriesRequest $request, $id)
     {
-        //
+        $animalcategorys = AnimalCategory::findOrFail($id);
+        $animalcategorys->update($request->all());
+        return redirect()->route('admin.animalcategorys.index')->with(['message' => 'Kind updated successfully']);
     }
 
     /**
@@ -84,6 +87,8 @@ class AnimalCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $animalcategorys = AnimalCategory::findOrFail($id);
+        $animalcategorys->delete();
+        return redirect()->route('admin.animalcategorys.index')->with(['message' => 'Kind deleted successfully']);
     }
 }

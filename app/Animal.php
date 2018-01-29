@@ -34,7 +34,7 @@ class Animal extends Model
 
     public function shelterName()
     {
-        return $this->shelter->name_shelter;
+        return $this->shelter->nameshelter;
     }
 }
 
