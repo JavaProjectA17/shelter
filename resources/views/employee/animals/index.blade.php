@@ -31,8 +31,8 @@
                                     <td>{{ $animal->image }}</td>
                                     <td>{{ $animal->about }}</td>
                                     <td>{{ $animal->birth_date }}</td>
-                                    <td>{{ $animal->category() }}</td>
-                                    <td>{{ $animal->shelter() }}</td>
+                                    <td>{{ $animal->categoryName() }}</td>
+                                    <td>{{ $animal->shelterName() }}</td>
                                     <td>
                                         <a href="{{ route('employee.animals.edit', $animal->id) }}" class="btn btn-default">Edit</a>
                                         <form action="{{ route('employee.animals.destroy', $animal->id) }}" method="POST"

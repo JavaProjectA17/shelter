@@ -9,13 +9,13 @@ class Animal extends Model
 {
     protected $fillable = ['name', 'image', 'about','category_id','shelter_id','birth_date'];
 
-    public function category()
+    public function categoryName()
     {
         $id = $this->category_id;
 //        return \App\AnimalCategory::all()->where('id',$id)->value('title');
         return DB::table('animal_categories')->where('id',$id)->value('title');
     }
-    public function shelter()
+    public function shelterName()
     {
         $id = $this->shelter_id;
 //        return \App\Shelter::all()->where('id',$id);
