@@ -15,11 +15,11 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ route('admin.kinds.store') }}" method="post">
+                        <form action="{{ route('admin.animalcategorys.store') }}" method="post">
                             {{ csrf_field() }}
                             New Kind:
                             <br />
-                            <input type="text" name="kind" value="{{ old('kind') }}" />
+                            <input type="text" name="title" value="{{ old('title') }}" />
                             <br /><br />
                             <input type="submit" value="Submit" class="btn btn-default" />
                         </form>

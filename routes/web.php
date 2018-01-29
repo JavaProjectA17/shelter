@@ -31,7 +31,7 @@ Route::post('send_form', function () {
     return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
 });
 
-Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
+
 
 Route::get('/employee', 'Employee\EditController@index');
 
@@ -43,9 +43,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*   admin routes
 //*
 
+//Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
+
 Route::get('/admin', 'HomeController@admin');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('/kinds', 'Admin\KindsController');
+    Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
     Route::resource('/animals', 'Admin\AnimalsController');
 });
