@@ -13,8 +13,8 @@ class AnimalsSeeder extends Seeder
     public function run()
     {
         Animal::create([
-            'pet_name'=>'Tuzik',
-            'pet_image'=>'img1.png',
+            'name'=>'Tuzik',
+            'image'=>'img1.png',
             'about'=>'very friendly dog'
         ]);
     }

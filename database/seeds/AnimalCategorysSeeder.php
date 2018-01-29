@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Kind;
+use App\AnimalCategory;
 
 class AnimalCategorysSeeder extends Seeder
 {
@@ -12,7 +12,7 @@ class AnimalCategorysSeeder extends Seeder
      */
     public function run()
     {
-        Kind::create([
+        AnimalCategory::create([
             'title'=>'Bugs'
         ]);
     }

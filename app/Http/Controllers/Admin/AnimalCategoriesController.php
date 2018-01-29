@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Requests\StoreAnimalCategorysRequest;
+use App\Http\Requests\StoreAnimalCategoriesRequest;
 use App\AnimalCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class AnimalCategorysController extends Controller
+class AnimalCategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,7 +36,7 @@ class AnimalCategorysController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAnimalCategorysRequest $request)
+    public function store(StoreAnimalCategoriesRequest $request)
     {
         AnimalCategory::create($request->all());
         return redirect()->route('admin.animalcategorys.index')->with(['message' => 'Category added successfully']);
@@ -72,7 +72,7 @@ class AnimalCategorysController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreAnimalCategorysRequest $request, $id)
+    public function update(StoreAnimalCategoriesRequest $request, $id)
     {
         $animalcategorys = AnimalCategory::findOrFail($id);
         $animalcategorys->update($request->all());
