@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('admin.app')
 
 @section('content')
     <div class="container">
@@ -11,7 +11,7 @@
                         @if (session('message'))
                             <div class="alert alert-info">{{ session('message') }}</div>
                         @endif
-                        <a href="{{ route('kind_of_animals.create') }}" class="btn btn-default">Add New Kind</a>
+                        <a href="{{ route('admin.kinds.create') }}" class="btn btn-default">Add New Kind</a>
                         <table class="table table-bordered">
                             <thead>
                             <tr>
@@ -20,12 +20,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($kind_of_animals as $kind_of_animal)
+                            @forelse($kinds as $kind)
                                 <tr>
-                                    <td>{{ $kind_of_animal->kind_of_the_animal }}</td>
+                                    <td>{{ $kind->kind }}</td>
                                     <td>
-                                        <a href="{{ route('kind_of_animals.edit', $kind_of_animal->id) }}" class="btn btn-default">Edit</a>
-                                        <form action="{{ route('kind_of_animals.destroy', $kind_of_animal->id) }}" method="POST"
+                                        <a href="{{ route('admin.kinds.edit', $kind->id) }}" class="btn btn-default">Edit</a>
+                                        <form action="{{ route('admin.kinds.destroy', $kind->id) }}" method="POST"
                                               style="display: inline"
                                               onsubmit="return confirm('Are you sure?');">
                                             <input type="hidden" name="_method" value="DELETE">
@@ -41,7 +41,7 @@
                             @endforelse
                             </tbody>
                         </table>
-                        {{ $kind_of_animals->links() }}
+                        {{ $kinds->links() }}
                     </div>
                 </div>
             </div>

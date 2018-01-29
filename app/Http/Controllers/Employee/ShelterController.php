@@ -30,7 +30,7 @@ class ShelterController extends Controller
     {
 //        dd(Auth::user());
 //        dd($request);
-//        echo "fsdfsdf";
+       // echo "fsdfsdf";
         return view('main.add_new_shelter.success');
     }
 
