@@ -11,14 +11,19 @@
                         @if (session('message'))
                             <div class="alert alert-info">{{ session('message') }}</div>
                         @endif
-                        <a href="{{ route('admin.animals.create') }}" class="btn btn-default">Add New Pet</a>
+                        @can('create', \App\Animal::class)
+                            <a href="{{ route('admin.animals.create') }}" class="btn btn-default">Add New Pet</a>
+                            <br /><br />
+                        @endcan
                         <table class="table table-bordered">
                             <thead>
                             <tr>
                                 <th>Pet name</th>
                                 <th>Image</th>
                                 <th>About</th>
-                                <th>Actions</th>
+                                @can('update', \App\Animal::class)
+                                    <th>Actions</th>
+                                @endcan
                             </tr>
                             </thead>
                             <tbody>
@@ -27,8 +32,10 @@
                                     <td>{{ $animal->name }}</td>
                                     <td>{{ $animal->image }}</td>
                                     <td>{{ $animal->about }}</td>
+                                    @can('update', \App\Animal::class)
                                     <td>
                                         <a href="{{ route('admin.animals.edit', $animal->id) }}" class="btn btn-default">Edit</a>
+                                        @can('delete', \App\Animal::class)
                                         <form action="{{ route('admin.animals.destroy', $animal->id) }}" method="POST"
                                               style="display: inline"
                                               onsubmit="return confirm('Are you sure?');">
@@ -36,7 +43,9 @@
                                             {{ csrf_field() }}
                                             <button class="btn btn-danger">Delete</button>
                                         </form>
+                                        @endcan
                                     </td>
+                                    @endcan
                                 </tr>
                             @empty
                                 <tr>

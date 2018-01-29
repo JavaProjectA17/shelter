@@ -5,13 +5,13 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Kind of animals</div>
+                    <div class="panel-heading">Category of animals</div>
 
                     <div class="panel-body">
                         @if (session('message'))
                             <div class="alert alert-info">{{ session('message') }}</div>
                         @endif
-                        <a href="{{ route('admin.kinds.create') }}" class="btn btn-default">Add New Kind</a>
+                        <a href="{{ route('admin.animalcategorys.create') }}" class="btn btn-default">Add New Kind</a>
                         <table class="table table-bordered">
                             <thead>
                             <tr>
@@ -20,12 +20,12 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @forelse($kinds as $kind)
+                            @forelse($animalcategorys as $animalcategory)
                                 <tr>
-                                    <td>{{ $kind->kind }}</td>
+                                    <td>{{ $animalcategory->title }}</td>
                                     <td>
-                                        <a href="{{ route('admin.kinds.edit', $kind->id) }}" class="btn btn-default">Edit</a>
-                                        <form action="{{ route('admin.kinds.destroy', $kind->id) }}" method="POST"
+                                        <a href="{{ route('admin.animalcategorys.edit', $animalcategory->id) }}" class="btn btn-default">Edit</a>
+                                        <form action="{{ route('admin.animalcategorys.destroy', $animalcategory->id) }}" method="POST"
                                               style="display: inline"
                                               onsubmit="return confirm('Are you sure?');">
                                             <input type="hidden" name="_method" value="DELETE">
@@ -41,7 +41,7 @@
                             @endforelse
                             </tbody>
                         </table>
-                        {{ $kinds->links() }}
+                        {{ $animalcategorys->links() }}
                     </div>
                 </div>
             </div>

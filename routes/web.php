@@ -20,7 +20,7 @@ Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@cont
 Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'Employee\ShelterController@create']);
 Route::post('/send_form', ['as' => 'send_form', 'uses' => 'Employee\ShelterController@send_form']);
 
-Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController');
+
 
 Route::get('/employee', 'Employee\EditController@index');
 
@@ -32,9 +32,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*   admin routes
 //*
 
+//Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
+
 Route::get('/admin', 'HomeController@admin');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::resource('/kinds', 'Admin\KindsController');
+    Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
     Route::resource('/animals', 'Admin\AnimalsController');
 });

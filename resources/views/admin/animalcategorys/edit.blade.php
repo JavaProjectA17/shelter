@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit Kind</div>
+                    <div class="panel-heading">Edit Category</div>
 
                     <div class="panel-body">
                         @if ($errors->count() > 0)
@@ -15,12 +15,12 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ route('admin.kinds.update', $kinds->id) }}" method="post">
+                        <form action="{{ route('admin.animalcategorys.update', $animalcategorys->id) }}" method="post">
                             <input type="hidden" name="_method" value="PUT">
                             {{ csrf_field() }}
-                            Kind:
+                            Category:
                             <br />
-                            <input type="text" name="kind" value="{{ $kinds->kind }}" />
+                            <input type="text" name="title" value="{{ $animalcategorys->title }}" />
                             <br /><br />
                             <input type="submit" value="Submit" class="btn btn-default" />
                         </form>
