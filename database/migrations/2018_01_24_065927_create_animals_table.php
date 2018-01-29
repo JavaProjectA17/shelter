@@ -15,15 +15,15 @@ class CreateAnimalsTable extends Migration
     {
         Schema::create('animals', function (Blueprint $table) {
 //            $table->increments('id');
-//            $table->string('pet_name');
-//            $table->string('pet_image');
+//            $table->string('name');
+//            $table->string('image');
 //            $table->text('about');
 //            $table->timestamps();
 
             $table->increments('id');
-            $table->string('pet_name')->nullable();//name
+            $table->string('name')->nullable();//name
             $table->text('about')->nullable();//description
-            $table->string('pet_image')->nullable();//image
+            $table->string('image')->nullable();//image
 //            $table->foreign('category_id')->references('id')->on('users');
             $table->integer('category_id')->nullable();
             $table->integer('shelter_id')->nullable();

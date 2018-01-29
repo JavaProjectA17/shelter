@@ -24,8 +24,8 @@
                             <tbody>
                             @forelse($animals as $animal)
                                 <tr>
-                                    <td>{{ $animal->pet_name }}</td>
-                                    <td>{{ $animal->pet_image }}</td>
+                                    <td>{{ $animal->name }}</td>
+                                    <td>{{ $animal->image }}</td>
                                     <td>{{ $animal->about }}</td>
                                     <td>
                                         <a href="{{ route('animals.edit', $animal->id) }}" class="btn btn-default">Edit</a>

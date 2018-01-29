@@ -27,8 +27,8 @@
                             <tbody>
                             @forelse($animals as $animal)
                                 <tr>
-                                    <td>{{ $animal->pet_name }}</td>
-                                    <td>{{ $animal->pet_image }}</td>
+                                    <td>{{ $animal->name }}</td>
+                                    <td>{{ $animal->image }}</td>
                                     <td>{{ $animal->about }}</td>
                                     <td>{{ $animal->birth_date }}</td>
                                     <td>{{ $animal->category() }}</td>
@@ -46,7 +46,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="4">No entries found.</td>
+                                    <td colspan="7">No entries found.</td>
                                 </tr>
                             @endforelse
                             </tbody>

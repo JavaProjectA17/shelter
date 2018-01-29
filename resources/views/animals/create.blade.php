@@ -19,11 +19,11 @@
                             {{ csrf_field() }}
                             Pet name:
                             <br />
-                            <input type="text" name="pet_name" value="{{ old('pet_name') }}" />
+                            <input type="text" name="name" value="{{ old('name') }}" />
                             <br /><br />
                             Pet View:
                             <br />
-                            <input type="text" name="pet_image" value="{{ old('pet_image') }}" />
+                            <input type="text" name="image" value="{{ old('image') }}" />
                             <br /><br />
                             About:
                             <br />
