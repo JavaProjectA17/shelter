@@ -28,9 +28,9 @@ class ShelterController extends Controller
      */
     public function send_form(Request $request)
     {
-        $shelter = new Shelter;
+        $shelter = new Shelter($request-all());
         $shelter->user_id = Auth::user() -> id;
-        $shelter->nameselter = $request-> nameselter;
+        $shelter->nameshelter = $request-> nameshelter;
         $shelter->address = $request-> address;
         $shelter->phone = $request-> phone;
         $shelter->description = $request-> description;
