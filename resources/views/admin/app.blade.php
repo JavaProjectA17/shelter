@@ -29,7 +29,7 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                    <a class="navbar-brand" href="{{ url('/admin/home') }}">
                         HOME
                         {{--{{ config('app.name', 'Pitomnik') }}--}}
                     </a>
