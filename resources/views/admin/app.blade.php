@@ -38,6 +38,7 @@
                     <ul class="nav navbar-nav">
                         <li><a href="/admin/animalcategorys">Kind of animals</a></li>
                         <li><a href="/admin/animals">Animals</a></li>
+                        <li><a href="/admin/novelties">News</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
