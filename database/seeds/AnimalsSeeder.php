@@ -14,7 +14,7 @@ class AnimalsSeeder extends Seeder
     {
         Animal::create([
             'name'=>'Tuzik',
-            'image'=>'img1.png',
+            'image'=>'/admin/images/default_img.jpg',
             'about'=>'very friendly dog'
         ]);
     }

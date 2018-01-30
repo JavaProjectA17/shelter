@@ -50,4 +50,5 @@ Route::get('/admin', 'HomeController@admin');
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
     Route::resource('/animals', 'Admin\AnimalsController');
+    Route::resource('/shelters', 'Admin\SheltersController');
 });
