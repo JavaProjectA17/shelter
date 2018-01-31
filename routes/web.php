@@ -16,10 +16,8 @@ Route::get('/', ['as' => 'index', 'uses' => 'User\MainController@index']);
 Route::get('/about', ['as' => 'about', 'uses' => 'User\MainController@about']);
 Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
-
-Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'Employee\ShelterController@create']);
-Route::post('/send_form', ['as' => 'send_form', 'uses' => 'Employee\ShelterController@send_form']);
-
+Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'User\MainController@add_new_shelter']);
+Route::post('/add_new_shelter', ['as' => 'add_new_shelter.create', 'uses' => 'Employee\ShelterController@create']);
 
 
 Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
