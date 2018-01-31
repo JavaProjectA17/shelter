@@ -30,7 +30,13 @@ class ShelterController extends Controller
     {
         $shelter = new Shelter($request->all());
         $shelter->user_id = Auth::user() -> id;
-        return view('main.add_new_shelter.success');
+        $shelter->nameshelter = $request-> nameshelter;
+        $shelter->address = $request-> address;
+        $shelter->phone = $request-> phone;
+        $shelter->description = $request-> description;
+        $shelter->save();
+
+        return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
     }
 
     /**
@@ -41,7 +47,7 @@ class ShelterController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
