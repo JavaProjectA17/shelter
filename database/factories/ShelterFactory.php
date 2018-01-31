@@ -13,11 +13,11 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(App\Novelty::class, function (Faker $faker) {
+$factory->define(App\Shelter::class, function (Faker $faker) {
     return [
-        'title'=>$faker->text(10),
-        'image'=>'/admin/images/default_img.jpg',
-        'short_description'=>$faker->text(25),
-        'description'=>$faker->text(150)
+        'name_shelter'=>$faker->text(10),
+        'address'=>$faker->text(10),
+        'description'=>$faker->text(30),
+        'phone'=>$faker->phoneNumber,
     ];
 });

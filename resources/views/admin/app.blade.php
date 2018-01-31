@@ -41,6 +41,8 @@
                         <li><a href="/admin/shelters">Shelters</a></li>
                         <li><a href="/admin/animalcategorys">Animal categories</a></li>
                         <li><a href="/admin/animals">Animals</a></li>
+                        <li><a href="/admin/novelties">News</a></li>
+                        <li><a href="/admin/users">Users</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

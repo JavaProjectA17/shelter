@@ -12,10 +12,6 @@ class AnimalsSeeder extends Seeder
      */
     public function run()
     {
-        Animal::create([
-            'name'=>'Tuzik',
-            'image'=>'/admin/images/default_img.jpg',
-            'about'=>'very friendly dog'
-        ]);
+        factory(App\Animal::class, 10)->create();
     }
 }

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NoveltyController extends Controller
+class UsersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,10 +15,8 @@ class NoveltyController extends Controller
      */
     public function index()
     {
-        //
-        // $novelties = Novelty::all();
-        return view('admin.novelties.index', compact('novelties'));
-
+        $users = User::paginate(5);
+        return view('admin.users.index', compact('users'));
     }
 
     /**
@@ -27,7 +26,7 @@ class NoveltyController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.users.create');
     }
 
     /**
@@ -38,7 +37,8 @@ class NoveltyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::add($request->all());
+        return redirect()->route('admini.users.index');
     }
 
     /**
@@ -60,7 +60,8 @@ class NoveltyController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::find($id);
+        return view('admin.users.edit', compact('users'));
     }
 
     /**
@@ -72,7 +73,11 @@ class NoveltyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::find($id);
+        $users->update($request->all());
+        $users->bcryptPassword($request->get('password'));
+
+        return redirect()->route('admin.users.index');
     }
 
     /**

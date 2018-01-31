@@ -15,13 +15,14 @@ class CreateSheltersTable extends Migration
     {
         Schema::create('shelters', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('user_id')->unsigned()->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->nullable();
             $table->boolean('approve')->default(False);
             $table->string('name_shelter');
             $table->string('address');
             $table->string('description');
             $table->string('phone');
+            $table->timestamps();
         });
     }
 

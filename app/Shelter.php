@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Shelter extends Model
 {
-    protected $fillable = ['id', 'approve', 'name_shelter', 'address', 'description', 'phone'];
+    protected $fillable = ['name_shelter', 'address', 'description', 'phone'];
     
 
 }

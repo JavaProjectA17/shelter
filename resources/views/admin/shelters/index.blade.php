@@ -38,7 +38,9 @@
                                     <td>{{ $shelter->phone }}</td>
                                     {{--@can('update', \App\Animal::class)--}}
                                     <td>
-                                        {{--<a href="{{ route('admin.shelters.edit', $shelter->id) }}" class="btn btn-default">Approve</a>--}}
+                                        {{ Form::open(array('url' => 'admin/' . $shelter->id . '/active')) }}
+                                        {{ Form::submit('Approve', [ 'class' => ($shelter->approve ? 'btn btn-success' : 'btn') ]) }}
+                                        {{ Form::close() }}
                                     </td>
                                     {{--@endcan--}}
                                 </tr>
