@@ -22,6 +22,10 @@ Route::post('/send_form', ['as' => 'send_form', 'uses' => 'Employee\ShelterContr
 
 
 
+Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
+
+Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
+
 Route::get('/employee', 'Employee\EditController@index');
 
 Auth::routes();
