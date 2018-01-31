@@ -22,7 +22,7 @@ Route::post('/send_form', ['as' => 'send_form', 'uses' => 'Employee\ShelterContr
 
 
 
-Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
+//Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
 
 Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
 
@@ -38,7 +38,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
-Route::get('/admin', 'HomeController@admin');
+Route::get('/admin', 'HomeController@admin')->name('admin.dashboard');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
