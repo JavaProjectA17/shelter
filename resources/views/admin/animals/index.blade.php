@@ -30,9 +30,7 @@
                             @forelse($animals as $animal)
                                 <tr>
                                     <td>{{ $animal->name }}</td>
-                                    <td>
-                                        <img class="img-circle img-responsive img-thumbnail" style="max-width: 70px;" src="{{ $animal->image }}">
-                                    </td>
+                                    <td>{{ $animal->image }}</td>
                                     <td>{{ $animal->about }}</td>
                                     @can('update', \App\Animal::class)
                                     <td>

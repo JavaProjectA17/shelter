@@ -11,7 +11,6 @@ class AnimalsController extends Controller
     public function index()
     {
         $animals = Animal::paginate(5);
-//        dd($animals);
         return view('admin.animals.index', compact('animals'));
     }
 
@@ -24,10 +23,6 @@ class AnimalsController extends Controller
     public function store(StoreAnimalRequest $request)
     {
         $this->authorize('create', Animal::class);
-//        $t = $request->get('image');
-//        if ($request->get('image') == null) {
-//            $request->set('image') = "/admin/images/default_img.jpg";
-//        }
         Animal::create($request->all());
         return redirect()->route('admin.animals.index')->with(['message' => 'Pet added successfully']);
     }

@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\AnimalCategory;
 use App\Http\Requests\StoreAnimalCategoriesRequest;
+use App\AnimalCategory;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AnimalCategoriesController extends Controller
@@ -16,7 +17,6 @@ class AnimalCategoriesController extends Controller
     public function index()
     {
         $animalcategorys = AnimalCategory::paginate(5);
-//        dd($animalcategorys);
         return view('admin.animalcategorys.index', compact('animalcategorys'));
     }
 
