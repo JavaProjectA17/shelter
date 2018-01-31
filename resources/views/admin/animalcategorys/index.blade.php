@@ -12,6 +12,7 @@
                             <div class="alert alert-info">{{ session('message') }}</div>
                         @endif
                         <a href="{{ route('admin.animalcategorys.create') }}" class="btn btn-default">Add New Kind</a>
+                        <br /><br />
                         <table class="table table-bordered">
                             <thead>
                             <tr>

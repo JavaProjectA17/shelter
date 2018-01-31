@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Shelter;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class NoveltyController extends Controller
+class SheltersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +15,26 @@ class NoveltyController extends Controller
      */
     public function index()
     {
-        //
-        // $novelties = Novelty::all();
-        return view('admin.novelties.index', compact('novelties'));
-
+        $shelters = Shelter::paginate(5);
+        return view('admin.shelters.index', compact('shelters'));
     }
+
+    public function toggleActive(Request $request, $id) {
+        $shelters = Shelter::findOrFail($id);
+        if($shelters->approve) {
+            $shelters->approve = false;
+            $shelters->save();
+        }
+        else {
+            $shelters->approve = true;
+            $shelters->save;
+        }
+        $shelters->update($request->all());
+
+        return redirect()->route('admin.shelters.index');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

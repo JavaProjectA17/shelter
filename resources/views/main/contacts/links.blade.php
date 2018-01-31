@@ -3,7 +3,6 @@
 <script src="/user/js/jquery.equalheights.js"></script>
 <script src="/user/js/jquery.easing.1.3.js"></script>
 <script src="/user/js/jquery.ui.totop.js"></script>
-<script src="/user/js/common.js"></script>
 <script>
     jQuery(document).ready(function () {
         $().UItoTop({

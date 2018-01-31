@@ -10,6 +10,15 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*
+Route::get('/', function () {
+    return view('welcome');
+<<<<<<< HEAD
+});*/
+
+Route::get('/employee', 'Employee\EditController@index');
+
+
 
 /*main*/
 Route::get('/', ['as' => 'index', 'uses' => 'User\MainController@index']);
@@ -18,7 +27,9 @@ Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
 
 Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'Employee\ShelterController@create']);
-Route::post('/send_form', ['as' => 'send_form', 'uses' => 'Employee\ShelterController@send_form']);
+Route::post('send_form', function () {
+    return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
+});
 
 
 
@@ -38,17 +49,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
-Route::get('/admin', 'HomeController@admin');
+Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::get('/home', 'HomeController@admin');
     Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
     Route::resource('/animals', 'Admin\AnimalsController');
-    Route::resource('/novelties', 'Admin\NoveltyController');
-});
-//Route::group(['middleware' => 'auth', 'prefix' => 'employee'], function () {
-//    Route::resource('/animals', 'Employee\AnimalsController');
-//});
-
-Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
-    Route::resource('animals', 'AnimalsController');
+    Route::resource('/shelters', 'Admin\SheltersController');
+    Route::resource('/novelties', 'Admin\NoveltiesController');
+    Route::resource('/users', 'Admin\UsersController');
 });
