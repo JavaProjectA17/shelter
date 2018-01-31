@@ -28,6 +28,7 @@ class SheltersController extends Controller
         else {
             $shelters->approve = true;
             $shelters->save;
+
         }
         $shelters->update($request->all());
 
