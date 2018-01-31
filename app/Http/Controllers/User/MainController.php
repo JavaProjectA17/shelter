@@ -30,4 +30,9 @@ class MainController extends Controller
         return view('main.contacts');
     }
 
+    public function add_new_shelter()
+    {
+        return view('main.add_new_shelter');
+    }
+
 }
