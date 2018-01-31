@@ -8,8 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    {{--<title>{{ config('app.name', 'Pitomnik') }}</title>--}}
-    <title>Shetler</title>
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -29,20 +28,17 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/admin/home') }}">
-                        HOME
-                        {{--{{ config('app.name', 'Pitomnik') }}--}}
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="/admin/shelters">Shelters</a></li>
-                        <li><a href="/admin/animalcategorys">Animal categories</a></li>
+                        <li><a href="/admin/animalcategorys">Kind of animals</a></li>
                         <li><a href="/admin/animals">Animals</a></li>
                         <li><a href="/admin/novelties">News</a></li>
-                        <li><a href="/admin/users">Users</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

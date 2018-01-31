@@ -12,6 +12,8 @@ class AnimalCategorysSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\AnimalCategory::class, 5)->create();
+        AnimalCategory::create([
+            'title'=>'Bugs'
+        ]);
     }
 }

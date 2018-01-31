@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Novelty extends Model
 {
-    protected $fillable = ['title', 'image', 'short_description', 'description'];
+    //
+    // protected $fillable = ['title', 'image', 'short_description', 'description'];
 }
