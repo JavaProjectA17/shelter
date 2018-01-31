@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\AnimalCategory;
+use App\Novelty;
 
-class AnimalCategorysSeeder extends Seeder
+class NoveltysSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class AnimalCategorysSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\AnimalCategory::class, 5)->create();
+        factory(App\Novelty::class, 10)->create();
     }
 }
