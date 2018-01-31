@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreAnimalRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class StoreAnimalRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return Auth::check();//true;//
     }
 
     /**
@@ -24,8 +25,8 @@ class StoreAnimalRequest extends FormRequest
     public function rules()
     {
         return [
-            'pet_name' => 'required',
-            'pet_image' => 'required',
+            'name' => 'required',
+            'image' => 'required',
             'about' => 'required'
         ];
     }
