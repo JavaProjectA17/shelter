@@ -1,5 +1,5 @@
 <div class="grid_6">
-    <h2>Contact Info</h2>
+    <h2>Контакти</h2>
     <br>
     <div class="map">
         <figure class="img_inner">
@@ -8,13 +8,11 @@
         <address>
             <dl>
                 <dt>
-                    <p>The Company Name Inc.<br>
-                        8901 Marmora Road,<br>
-                        Glasgow, D04 89GR.</p>
+                    <p>IT Academy<br>
+                        вул. Миколи Ващука, 20а<br>
+                        години роботи: 09:00 - 20:00</p>
                 </dt>
-                <dd><span>Freephone:</span>+1 800 559 6580</dd>
-                <dd><span>Telephone:</span>+1 800 603 6035</dd>
-                <dd><span>FAX:</span>+1 800 889 9898</dd>
+                <dd><span>Телефон:</span>063-189-22-56</dd>
             </dl>
         </address>
     </div>

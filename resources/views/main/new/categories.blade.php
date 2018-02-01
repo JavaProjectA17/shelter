@@ -1,4 +1,4 @@
-    <h2 class="ic1">Categories</h2>
+    <h2 class="ic1">Категорії</h2>
     <ul class="list1">
         <li> <span></span>
             <div class="extra_wrapper">

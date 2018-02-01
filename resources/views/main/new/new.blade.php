@@ -1,5 +1,5 @@
 <div class="grid_7">
-    <h2>Blog</h2>
+    <h2>Блог</h2>
     <br>
     <div class="blog"> <img src="/user/images/page4_img1.jpg" alt="" class="img_inner fleft i1">
         <div class="extra_wrapper">

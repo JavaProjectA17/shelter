@@ -1,13 +1,13 @@
 <div class="content">
     <div class="container_12">
         <div class="grid_12">
-            <h2 class="ic1" >Useful To Know</h2>
+            <h2 class="ic1" >Корисно знати</h2>
         </div>
         <div class="clear"></div>
         <div class="grid_4">
             <div class="pad2"> <img src="/user/images/page2_img2.jpg" alt="" class="img_inner fleft i2">
                 <div class="extra_wrapper">
-                    <div class="text2 col2"><a href="#">Cats</a></div>
+                    <div class="text2 col2"><a href="#">Коти</a></div>
                     Laes quis orci eget diam viverralopr con equat. Fusce sagit quam ihui hyhy kolo opirlo pulvinarhjkjo.</div>
                 <div class="clear"></div>
                 Araesent quis orci eget diam viverra consequat. Fusce sagittis quam in pulvinar sollicitudin velit velit cursus nibh ulamcorper accumsan semo lectus ut sapien. Lonec venienatis posuere velit aty convallis neque ullamcorper quis. Integerylo posuere ipsum eu risus sollicitudin nec varius eratylo luctus. Musce fringilla erat ac urna ba. </div>
@@ -15,7 +15,7 @@
         <div class="grid_4">
             <div class="pad2"> <img src="/user/images/page2_img3.jpg" alt="" class="img_inner fleft i2">
                 <div class="extra_wrapper">
-                    <div class="text2 col2"><a href="#">Dogs </a></div>
+                    <div class="text2 col2"><a href="#">Собаки </a></div>
                     Foaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit.</div>
                 <div class="clear"></div>
                 Loraesent quis orci eget diam viverra consuilot equat. Fusce sagittis quam in pulvinar sollicituo udin velit velit cursus nibh ullamcorper accutelo msan semy lectus ut sapien. Donec venenatisw posuere velit aty convallis neque ullamcorpertu quis. Integerylo posuere ipsum eu risus sollic itudin nec varius eratylo luctus. Fusce fringilla. </div>
