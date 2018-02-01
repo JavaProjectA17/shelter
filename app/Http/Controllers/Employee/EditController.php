@@ -14,6 +14,7 @@ use App\Http\Controllers\Controller;
 class EditController extends Controller
 {
     public function index(){
-        return view('employee/edit');
+        return view('employee.edit');
     }
+
 }
