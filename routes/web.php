@@ -38,7 +38,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
-Route::get('/admin', 'HomeController@admin')->name('admin.dashboard');
+//Route::get('/admin', 'HomeController@admin')->name('admin.dashboard');
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
