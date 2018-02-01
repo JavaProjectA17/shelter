@@ -70,13 +70,6 @@
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    {{--<ul class="nav navbar-nav">--}}
-                        {{--<li><a href="/admin/animalcategorys">Kind of animals</a></li>--}}
-                        {{--<li><a href="/admin/animals">Animals</a></li>--}}
-                        {{--<li><a href="/admin/novelties">News</a></li>--}}
-                    {{--</ul>--}}
-
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
@@ -128,8 +121,8 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active treeview">
-                    <a href="{{route('admin.dashboard')}}">{{--<---------------------------------------------------------------------------------This link redirects to dashboard panel--}}
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <a href="#">
+                        <i class="fa fa-dashboard"></i><span>Dashboard</span>
                         <span class="pull-right-container">
 
             </span>
