@@ -12,6 +12,6 @@ class SheltersSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Shelter::class, 10)->create();
+        factory(App\Shelter::class, 20)->create();
     }
 }
