@@ -41,10 +41,9 @@ class SheltersController extends Controller
             $shelters->approve = true;
             $shelters->save;
             $shelters->update($request->all());
-            return redirect()->route('admin.shelters.waiting_to_approve');
+            Shelter::send_form($request->all());
         }
     }
-
 
 
     /**
