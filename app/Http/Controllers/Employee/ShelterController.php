@@ -15,26 +15,9 @@ class ShelterController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('main.add_new_shelter');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function send_form(Request $request)
-    {
-        $shelter = new Shelter($request->all());
-        $shelter->user_id = Auth::user() -> id;
-        $shelter->nameshelter = $request-> nameshelter;
-        $shelter->address = $request-> address;
-        $shelter->phone = $request-> phone;
-        $shelter->description = $request-> description;
-        $shelter->save();
+        Shelter::add($request->all(), Auth::user() -> id);
         return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
     }
 
@@ -46,7 +29,7 @@ class ShelterController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**

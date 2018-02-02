@@ -6,7 +6,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{--<title>{{ config('app.name', 'Pitomnik') }}</title>--}}
+    <title>Shetler</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -67,19 +68,24 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
-           {{--<a class="navbar-brand" href="{{ url('/') }}">--}}
-                        {{--{{ config('app.name', 'Laravel') }}--}}
-                    {{--</a>--}}
+
+                    <a class="navbar-brand" href="{{ url('/admin/home') }}">
+                        HOME
+                        {{--{{ config('app.name', 'Pitomnik') }}--}}
+                    </a>
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
-                    {{--<ul class="nav navbar-nav">--}}
-                        {{--<li><a href="/admin/animalcategorys">Kind of animals</a></li>--}}
-                        {{--<li><a href="/admin/animals">Animals</a></li>--}}
-                        {{--<li><a href="/admin/novelties">News</a></li>--}}
-                    {{--</ul>--}}
+                    <ul class="nav navbar-nav">
+                        <li><a href="/admin/shelters">Shelters</a></li>
+                        <li><a href="/admin/animalcategorys">Animal categories</a></li>
+                        <li><a href="/admin/animals">Animals</a></li>
+                        <li><a href="/admin/novelties">News</a></li>
+                        <li><a href="/admin/users">Users</a></li>
+                    </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">
@@ -90,8 +96,11 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <strong>{{ Auth::user()->name }}</strong> <br>
+                                    <small>{{ Auth::user()->role }}</small>
+                                    <span class="caret"></span>
                                 </a>
+
 
                                 <ul class="dropdown-menu">
                                     <li>
@@ -176,8 +185,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        //TO DO  content
+
 
     @yield('content')
 
