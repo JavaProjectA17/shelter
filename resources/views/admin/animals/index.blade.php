@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-9 col-md-offset-2">
                 <div class="panel panel-default">
                     <div class="panel-heading">Animals</div>
 
@@ -30,7 +30,9 @@
                             @forelse($animals as $animal)
                                 <tr>
                                     <td>{{ $animal->name }}</td>
-                                    <td>{{ $animal->image }}</td>
+                                    <td>
+                                        <img class="img-circle img-responsive img-thumbnail" style="max-width: 70px;" src="{{ $animal->image }}">
+                                    </td>
                                     <td>{{ $animal->about }}</td>
                                     @can('update', \App\Animal::class)
                                     <td>

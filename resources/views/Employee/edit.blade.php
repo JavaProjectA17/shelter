@@ -1,4 +1,4 @@
-@extends('employee.home')
+@extends('Employee.home')
 @section('content')
     <div class="content">
     <div class="container-fluid">

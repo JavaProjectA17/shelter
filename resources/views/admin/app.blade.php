@@ -6,7 +6,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{--<title>{{ config('app.name', 'Pitomnik') }}</title>--}}
+    <title>Shetler</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -67,6 +68,7 @@
                         <span class="icon-bar"></span>
                     </button>
 
+
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -79,8 +81,11 @@
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    <strong>{{ Auth::user()->name }}</strong> <br>
+                                    <small>{{ Auth::user()->role }}</small>
+                                    <span class="caret"></span>
                                 </a>
+
 
                                 <ul class="dropdown-menu">
                                     <li>
@@ -165,8 +170,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        //TO DO  content
+
 
     @yield('content')
 
