@@ -15,7 +15,17 @@ class SheltersController extends Controller
      */
     public function index()
     {
-        $shelters = Shelter::paginate(5);
+        $shelters = Shelter::paginate(10);
+        return view('admin.shelters.index', compact('shelters'));
+    }
+
+    public function approved() {
+        $shelters = Shelter::where('approve', '=', true)->paginate(10);
+        return view('admin.shelters.index', compact('shelters'));
+    }
+
+    public function waiting_to_approve() {
+        $shelters = Shelter::where('approve', '=', false)->paginate(10);
         return view('admin.shelters.index', compact('shelters'));
     }
 
@@ -24,14 +34,15 @@ class SheltersController extends Controller
         if($shelters->approve) {
             $shelters->approve = false;
             $shelters->save();
+            $shelters->update($request->all());
+            return redirect()->route('admin.shelters.approved');
         }
         else {
             $shelters->approve = true;
             $shelters->save;
+            $shelters->update($request->all());
+            return redirect()->route('admin.shelters.waiting_to_approve');
         }
-        $shelters->update($request->all());
-
-        return redirect()->route('admin.shelters.index');
     }
 
 

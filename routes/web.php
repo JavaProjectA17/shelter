@@ -38,8 +38,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
 
+Route::get('/admin/home', 'HomeController@admin');
+
+Route::get('/admin/shelters/approved', ['uses' => 'Admin\SheltersController@approved', 'as' => 'admin.shelters.approved']);
+Route::get('/admin/shelters/waiting_to_approve', ['uses' => 'Admin\SheltersController@waiting_to_approve', 'as' => 'admin.shelters.waiting_to_approve']);
+
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
-    Route::get('/home', 'HomeController@admin');
     Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
     Route::resource('/animals', 'Admin\AnimalsController');
     Route::resource('/shelters', 'Admin\SheltersController');

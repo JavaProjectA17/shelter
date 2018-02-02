@@ -15,9 +15,9 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Shelter::class, function (Faker $faker) {
     return [
-        'name_shelter'=>$faker->text(10),
+        'nameshelter'=>$faker->text(10),
         'address'=>$faker->text(10),
         'description'=>$faker->text(30),
-        'phone'=>$faker->phoneNumber,
+        'phone'=>$faker->phoneNumber(),
     ];
 });
