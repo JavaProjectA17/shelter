@@ -36,7 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
-Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
+Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.shelters.approved']);
 
 Route::get('/admin/home', 'HomeController@admin');
 

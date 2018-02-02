@@ -4,6 +4,8 @@ namespace App;
 
 use App\Mail\MailClass;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class Shelter extends Model
 {
@@ -17,15 +19,11 @@ class Shelter extends Model
 
         return $shelter;
     }
-    public static function send_form($request){
+    public static function send_form($id){
+        $user = DB::table('shelters')->where('id', $id)->first();
+        $email = DB::table('users')->where('id', $user->user_id)->first();
         
-        $user = User::findOrFail($id);
-        dd($user);
-//        $name = $request->name;
-//        $email = $request->email;
-//
-//        Mail::to('rizhko.anastasiya@gmail.com')->send(new MailClass($name, $email));
-        return redirect()->route('admin.shelters.waiting_to_approve');
+        Mail::to('rizhko.anastasiya@gmail.com')->send(new MailClass($user->nameshelter, $email->email));
     }
 
 }
