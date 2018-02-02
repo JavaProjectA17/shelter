@@ -104,8 +104,8 @@
     <h4 class="title">Edit Profile</h4>
     </div>
     <div class="content">
-    <form method="post" action="/public/employee">
-        {{ csrf_field() }}
+    <form>
+
     <div class="row">
     <div class="col-md-5">
     <div class="form-group">
@@ -114,13 +114,13 @@
     <div class="col-md-3">
     <div class="form-group">
     <label>Shelter`s name</label>
-    <input type="text" class="form-control border-input" placeholder="shelter`s name" value="">
+    <input type="text" class="form-control border-input" placeholder="shelter`s name" name="title">
     </div>
     </div>
     <div class="col-md-4">
     <div class="form-group">
     <label for="exampleInputEmail1">Address</label>
-    <input type="email" class="form-control border-input" placeholder="Address">
+    <input type="text" class="form-control border-input" placeholder="Address" name="address">
     </div>
     </div>
     </div>
@@ -129,7 +129,7 @@
     <div class="col-md-6">
     <div class="form-group">
     <label>Phone</label>
-    <input type="text" class="form-control border-input" placeholder="phone" value="">
+    <input type="text" class="form-control border-input" placeholder="phone" name="phone">
     </div>
     </div>
     <div class="col-md-6">
@@ -165,13 +165,13 @@
     <div class="col-md-12">
     <div class="form-group">
     <label>Description</label>
-    <textarea rows="5" class="form-control border-input" placeholder="Here can be your description">
+    <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" name="description">
     </textarea>
     </div>
     </div>
     </div>
     <div class="text-center">
-    <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+    <button type="submit" class="btn btn-info btn-fill btn-wd" disabled>Update Profile</button>
     </div>
     <div class="clearfix"></div>
     </form>

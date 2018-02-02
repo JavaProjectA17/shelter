@@ -21,15 +21,12 @@ Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'Employee\S
 Route::post('/send_form', ['as' => 'send_form', 'uses' => 'Employee\ShelterController@send_form']);
 
 
-//Route::namespace('Employee')->group(function (){
-//    Route::get('/employee', 'EditController@index');
-//    Route::post('/employee',function (){
-//        print_r($_POST);
-//    });
-//});
 Route::get('/employee','Employee\EditController@index');
 
-Route::post('/employee/edit','Employee\EditController@index');
+Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
+
+
+
 
 
 Auth::routes();

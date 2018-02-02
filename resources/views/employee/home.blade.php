@@ -54,7 +54,7 @@
                 {{--</a>--}}
                 {{--</li>--}}
                 <li class="active">
-                    <a href="/employee">
+                    <a href="/public/employee/edit">
                         <i class="ti-user"></i>
                         <p>Edit</p>
                     </a>
