@@ -141,7 +141,7 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active treeview">
-                    <a href="{{route('admin.dashboard')}}">{{--<---------------------------------------------------------------------------------This link redirects to dashboard panel--}}
+                    <a href="#">{{--<---------------------------------------------------------------------------------This link redirects to dashboard panel--}}
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                         <span class="pull-right-container">
 

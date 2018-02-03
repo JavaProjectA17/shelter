@@ -20,7 +20,7 @@ Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'User\MainC
 Route::post('/add_new_shelter', ['as' => 'add_new_shelter.create', 'uses' => 'Employee\ShelterController@create']);
 
 
-//Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
+Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
 
 Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
 
