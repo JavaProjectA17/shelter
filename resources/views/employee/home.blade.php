@@ -21,8 +21,8 @@
     <!-- Animation library for notifications   -->
     <link href="/public/assets/css/animate.min.css" rel="stylesheet"/>
 
-    <!--  Paper Dashboard core CSS    --
-    <link href="/public/assets/css/paper-dashboard.css" rel="stylesheet"/>
+    <!--  Paper Dashboard core CSS    -->
+
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
 
