@@ -15,7 +15,7 @@ class CreateSheltersTable extends Migration
     {
         Schema::create('shelters', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id')->unsigned()->nullable(); // nullable() - special for seeding
             $table->foreign('user_id')->references('id')->on('users');
             $table->boolean('approve')->default(False);
             $table->string('nameshelter', 100);

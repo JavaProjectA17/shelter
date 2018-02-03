@@ -6,9 +6,9 @@
             <div class="col-md-9 col-md-offset-2">
                 <div class="panel panel-default">
                     <ul class="nav nav-tabs">
-                        <li><a href="\admin\shelters\">All</a></li>
-                        <li><a href="\admin\shelters\waiting_to_approve">Waiting to approve</a></li>
-                        <li><a href="\admin\shelters\approved">Approved</a></li>
+                        <li class="nav-item @if ($active == 'all') active @endif"><a class="nav-link" href="\admin\shelters\">All</a></li>
+                        <li class="nav-item @if ($active == 'waiting') active @endif"><a class="nav-link" href="\admin\shelters\waiting_to_approve">Waiting to approve</a></li>
+                        <li class="nav-item @if ($active == 'approved') active @endif"><a class="nav-link" href="\admin\shelters\approved">Approved</a></li>
                     </ul>
 
                     <div class="panel-body">
