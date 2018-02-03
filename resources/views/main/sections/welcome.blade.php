@@ -1,7 +1,7 @@
 <div class="page1_block">
     <div class="container_12">
         <div class="grid_6">
-            <h2>Welcome to Our Site</h2>
+            <h2>Ласкаво просимо на наш сайт</h2>
             <br>
             <img src="user/images/page1_img5.jpg" alt="" class="img_inner fleft">
             <div class="extra_wrapper style1">
@@ -11,7 +11,7 @@
             Praesent quis orci eget diam viverra consequat. Fusce sagittis quam in pulvinar sollicitudin velit velit cursus nibh ullamcorper accumsan sem lectus ut sapien. Donec venenatis posuere velit aty convallis neque ullamcorper quis. Integer posuere ipsum eu risus sollicitudin nec varius eratylo luctus. Fusce fringilla erat ac urna pe llentesque congue. Nunc fringilla diam sit amet adipi scing bibendum turpis velit feugiat urna et pharetra neque nisi ac nunc. Vivamus est quam dapibuslok. ..ullamco rper imperdiet nec euismod ut arcu. Nulla facilisi. Etiam mauris lorem pulvinar vel con sequat ut pretium ac erat. Morbi facilisis elit eu nisl blandit ac blandit enim faucibu. Praesent quis orci eget diam viverra consequat. Fusce sagittis.<br>
             <a href="#" class="btn">More</a> </div>
         <div class="grid_5 prefix_1">
-            <h2 class="ic1">Latest News</h2>
+            <h2 class="ic1">Останні новини</h2>
             <ul class="list">
                 <li> <span>
           <time datetime="2045-01-01">27<span>APR</span></time>

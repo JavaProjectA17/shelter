@@ -1,7 +1,7 @@
 <div class="bottom_block bot1">
     <div class="container_12">
         <div class="grid_12">
-            <h2>Our Staff </h2>
+            <h2>Наша Команда </h2>
         </div>
         <div class="grid_4">
             <div class="pad2"> <img src="/user/images/page2_img8.jpg" alt="" class="img_inner fleft">
