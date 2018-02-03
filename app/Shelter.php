@@ -2,7 +2,10 @@
 
 namespace App;
 
+use App\Mail\MailClass;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class Shelter extends Model
 {
@@ -15,6 +18,14 @@ class Shelter extends Model
         $shelter->save();
 
         return $shelter;
+    }
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+    public function send_form(){
+        $shelter = $this;
+        $user = $this->user;
+        Mail::to($user->email)->send(new MailClass($user->name, $shelter->nameshelter));
     }
 
 }
