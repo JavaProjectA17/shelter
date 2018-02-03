@@ -104,8 +104,8 @@
                             <h4 class="title">Edit Profile</h4>
                         </div>
                         <div class="content">
-                            <form method="post" action="/public/employee/edit">
-                                {{ csrf_field() }}
+                            <form>
+
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="form-group">
@@ -171,7 +171,7 @@
                                     </div>
                                 </div>
                                 <div class="text-center">
-                                    <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
+                                    <button type="submit" class="btn btn-info btn-fill btn-wd" disabled>Update Profile</button>
                                 </div>
                                 <div class="clearfix"></div>
                             </form>
