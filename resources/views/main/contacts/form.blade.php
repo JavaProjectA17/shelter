@@ -1,5 +1,5 @@
 <div class="grid_5 prefix_1">
-    <h2 class="ic1">Contact Form</h2>
+    <h2 class="ic1">Контактна форма</h2>
     <form id="form" action="#">
         <div class="success_wrapper">
             <div class="success">Contact form submitted!<br>

@@ -1,4 +1,4 @@
-<h2 class="head1">Recent Posts</h2>
+<h2 class="head1">Останні повідомлення</h2>
 <ul class="list l2">
     <li> <span>
           <time datetime="2045-01-01">26<span>APR</span></time>
