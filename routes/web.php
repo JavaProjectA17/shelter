@@ -33,6 +33,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*
 //*   admin routes
 //*
+Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
