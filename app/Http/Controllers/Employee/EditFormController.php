@@ -7,15 +7,18 @@ use App\Http\Controllers\Controller;
 
 class EditFormController extends Controller
 {
+   public function index(){
+      return view ('employee.newshelter.index',compact('edit'));
+   }
+
+   public function store(Request $request){
+       $request->all();
+   }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view ('employee.newshelter.index',compact('edit'));
-    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -33,10 +36,7 @@ class EditFormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //$request->all();
-    }
+
 
     /**
      * Display the specified resource.

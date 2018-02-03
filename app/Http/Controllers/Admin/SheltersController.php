@@ -30,21 +30,21 @@ class SheltersController extends Controller
     }
 
     public function toggleActive(Request $request, $id) {
-        $shelters = Shelter::findOrFail($id);
-        if($shelters->approve) {
-            $shelters->approve = false;
-            $shelters->save();
-            $shelters->update($request->all());
+        $shelter = Shelter::findOrFail($id);
+        if($shelter->approve) {
+            $shelter->approve = false;
+            $shelter->save();
+            $shelter->update($request->all());
             return redirect()->route('admin.shelters.approved');
         }
         else {
-            $shelters->approve = true;
-            $shelters->save;
-            $shelters->update($request->all());
+            $shelter->approve = true;
+            $shelter->save;
+            $shelter->send_form();
+            $shelter->update($request->all());
             return redirect()->route('admin.shelters.waiting_to_approve');
         }
     }
-
 
 
     /**
