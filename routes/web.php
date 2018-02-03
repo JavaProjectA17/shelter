@@ -35,7 +35,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*
 Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
 
-
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
 Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
