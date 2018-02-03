@@ -36,7 +36,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
-Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.shelters.approved']);
+Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
 
 Route::get('/admin/home', 'HomeController@admin');
 
@@ -49,4 +49,8 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::resource('/shelters', 'Admin\SheltersController');
     Route::resource('/novelties', 'Admin\NoveltiesController');
     Route::resource('/users', 'Admin\UsersController');
+});
+
+Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
+    Route::resource('animals', 'AnimalsController');
 });

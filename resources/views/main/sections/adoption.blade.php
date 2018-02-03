@@ -1,7 +1,7 @@
 <div class="content page1">
     <div class="container_12">
         <div class="grid_12"> <a href="#" class="next"></a><a href="#" class="prev"></a>
-            <h2>Pets for Adoption</h2>
+            <h2>Доступні тварини</h2>
         </div>
         <div class="clear"></div>
         <ul class="carousel1">

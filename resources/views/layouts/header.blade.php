@@ -9,16 +9,16 @@
             <div class="menu_block">
                 <nav>
                     <ul class="sf-menu">
-                        <li class="current"><a href="{{route('index')}}">Головна</a></li>
-                        <li class="with_ul"><a href="{{route('about')}}">Про нас</a>
+                        <li class="current"><a href="{{route('index')}}">Р“РѕР»РѕРІРЅР°</a></li>
+                        <li class="with_ul"><a href="{{route('about')}}">РџСЂРѕ РЅР°СЃ</a>
                             {{--<ul>
                                 <li><a href="#">Testimonials</a></li>
                                 <li><a href="#">Archive</a></li>
                             </ul>--}}
                         </li>
                         {{--<li><a href="{{route('')}}.html">Services</a></li>--}}
-                        <li><a href="{{route('new')}}">Новини</a></li>
-                        <li><a href="{{route('contacts')}}">Контакти </a></li>
+                        <li><a href="{{route('new')}}">РќРѕРІРёРЅРё</a></li>
+                        <li><a href="{{route('contacts')}}">РљРѕРЅС‚Р°РєС‚Рё </a></li>
                     </ul>
                 </nav>
                 <div class="clear"></div>
