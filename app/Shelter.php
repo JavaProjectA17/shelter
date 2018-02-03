@@ -20,10 +20,10 @@ class Shelter extends Model
         return $shelter;
     }
     public static function send_form($id){
-        $user = DB::table('shelters')->where('id', $id)->first();
-        $email = DB::table('users')->where('id', $user->user_id)->first();
-        
-        Mail::to('rizhko.anastasiya@gmail.com')->send(new MailClass($user->nameshelter, $email->email));
+        $shelter = DB::table('shelters')->where('id', $id)->first();
+        $user = DB::table('users')->where('id', $shelter ->user_id)->first();
+
+        Mail::to($user->email)->send(new MailClass($user->name, $shelter->nameshelter));
     }
 
 }

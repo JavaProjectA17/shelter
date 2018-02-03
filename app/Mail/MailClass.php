@@ -5,7 +5,7 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Support\Facades\URL;
 
 class MailClass extends Mailable
 {
@@ -16,10 +16,13 @@ class MailClass extends Mailable
      *
      * @return void
      */
-    public function __construct($name, $email)
+    public function __construct($name, $nameshelter)
     {
+        $this->url = URL::to('/');
+        /*TO DO: url for employee */
+        $this->url_verified = URL::to('/employee'); 
         $this->name = $name;
-        $this->email = $email;
+        $this->nameshelter = $nameshelter;
 
     }
 
@@ -32,8 +35,10 @@ class MailClass extends Mailable
     {
         return $this->view('emails.confirmation_of_establishment_of_shelter')
             ->with([
+                'url' =>  $this->url,
+                'url_verified' =>  $this->url_verified,
                 'name' => $this->name,
-                'email'=>$this->email,
+                'nameshelter'=>$this->nameshelter,
             ])
             ->subject('Confirmation of the establishment of a shelter!');
     }
