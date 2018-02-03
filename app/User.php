@@ -18,6 +18,10 @@ class User extends Authenticatable
         'name', 'email', 'password', 'role'
     ];
 
+    public function hasRole($role) {
+        $this->role == $role;
+    }
+
     public static function add($values) {
         $user = new static();
         $user->fill($values);
