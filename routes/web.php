@@ -33,6 +33,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*
 //*   admin routes
 //*
+Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
@@ -50,3 +51,7 @@ Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as'
     Route::resource('/novelties', 'Admin\NoveltiesController');
     Route::resource('/users', 'Admin\UsersController');
 });//->middleware('auth', 'admin:admin');
+
+Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
+    Route::resource('animals', 'AnimalsController');
+});

@@ -39,7 +39,7 @@ class SheltersController extends Controller
         $shelter->update($request->all());
 
         if($shelter->approve) {
-//            $shelter->sendForm();
+            $shelter->sendForm();
             return redirect()->route('admin.shelters.waiting_to_approve');
         }
         else
