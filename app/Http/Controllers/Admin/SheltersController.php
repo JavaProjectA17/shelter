@@ -16,20 +16,20 @@ class SheltersController extends Controller
     public function index()
     {
         $active = 'all';
-        $shelter = Shelter::paginate(10);
-        return view('admin.shelters.index', compact("shelter", "active"));
+        $shelters = Shelter::paginate(10);
+        return view('admin.shelters.index', compact("shelters", "active"));
     }
 
     public function approved() {
         $active = 'approved';
-        $shelter = Shelter::where('approve', '=', true)->paginate(10);
-        return view('admin.shelters.index', compact("shelter", "active"));
+        $shelters = Shelter::where('approve', '=', true)->paginate(10);
+        return view('admin.shelters.index', compact("shelters", "active"));
     }
 
     public function waiting_to_approve() {
         $active = 'waiting';
-        $shelter = Shelter::where('approve', '=', false)->paginate(10);
-        return view('admin.shelters.index', compact("shelter", "active"));
+        $shelters = Shelter::where('approve', '=', false)->paginate(10);
+        return view('admin.shelters.index', compact("shelters", "active"));
     }
 
     public function toggleActive(Request $request, $id) {
@@ -39,7 +39,7 @@ class SheltersController extends Controller
         $shelter->update($request->all());
 
         if($shelter->approve) {
-            $shelter->sendForm();
+            $shelter->send_form();
             return redirect()->route('admin.shelters.waiting_to_approve');
         }
         else
