@@ -1,4 +1,4 @@
-    <h2 class="ic1">Категорії</h2>
+    <h2 class="ic1">РљР°С‚РµРіРѕСЂС–С—</h2>
     <ul class="list1">
         <li> <span></span>
             <div class="extra_wrapper">
