@@ -15,6 +15,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*
 //*   admin routes
 //*
+Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
 
 Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
 Route::get('/admin/home', 'HomeController@admin');
