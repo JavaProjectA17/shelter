@@ -28,7 +28,7 @@
                             @forelse($animals as $animal)
                                 <tr>
                                     <td>{{ $animal->name }}</td>
-                                    <td>{{ $animal->image }}</td>
+                                    <td><image class="AnimalImage" src="../../../../imageAnimals/{{$animal->image}} "/></td>
                                     <td>{{ $animal->about }}</td>
                                     <td>{{ $animal->birth_date }}</td>
                                     <td>{{ $animal->categoryName() }}</td>

@@ -9,16 +9,20 @@ class Animal extends Model
 {
     protected $fillable = ['name', 'image', 'about','category_id','shelter_id','birth_date'];
 
-//    public function categoryName()
-//    {
-//        $id = $this->category_id;
-//        return \App\AnimalCategory::where('id',$id)->value('title');
-//    }
-//    public function shelter()
-//    {
-//        $id = $this->shelter_id;
-//        return \App\Shelter::where('id',$id)->value('name_shelter');
-//    }
+    public static function add($values){
+        $user = new static;
+        $user = fill($values);
+        $user->save();
+
+        return $user;
+    }
+
+    public function uploadImage($image){
+        if ($image != null){
+            $image = $request->file('image');
+            $image->move('imageAnimals',$image->getClientOriginalName());
+        }
+    }
 
     public function category()
     {
