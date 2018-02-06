@@ -18,6 +18,7 @@ $factory->define(App\Novelty::class, function (Faker $faker) {
         'title'=>$faker->text(10),
         'image'=>'/admin/images/default_img.jpg',
         'short_description'=>$faker->text(25),
-        'description'=>$faker->text(150)
+        'description'=>$faker->text(150),
+        'start'=>'2018-02-07'
     ];
 });
