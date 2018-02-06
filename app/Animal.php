@@ -2,26 +2,48 @@
 
 namespace App;
 
-use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 
 class Animal extends Model
 {
-    protected $fillable = ['name', 'image', 'about','category_id','shelter_id','birth_date'];
+    protected $fillable = ['name', 'about','category_id','shelter_id','birth_date'];
 
     public static function add($values){
-        $user = new static;
-        $user = fill($values);
-        $user->save();
+        $animal = new static;
+        $animal->fill($values);
+        $animal->save();
 
-        return $user;
+        return $animal;
     }
 
     public function uploadImage($image){
         if ($image != null){
-            $image = $request->file('image');
-            $image->move('imageAnimals',$image->getClientOriginalName());
+
+            $imageName = time().$this->id.'.'.$image->extension();
+
+            $image->move('imageAnimals',$imageName);
+            $this->image = $imageName;
+            $this->save();
         }
+    }
+
+    public function deleteImage(){
+        if ($this->image != null)
+            if (File::exists('imageAnimals/'.$this->image))
+                File::delete('imageAnimals/'.$this->image);
+    }
+
+    public function remove(){
+        $this->deleteImage();
+        $this->delete();
+    }
+
+    public function getAvatar(){
+        if ($this->image == null){
+            return 0;
+        }
+        return '/imageAnimals/'.$this->image;
     }
 
     public function category()

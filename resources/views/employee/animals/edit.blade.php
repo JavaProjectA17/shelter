@@ -24,7 +24,7 @@
                             <br /><br />
                             Pet Image:
                             <br />
-                            <input type="file" name="image" id="image"/>
+                            <input type="file" name="image" accept="image/*" />
                             <br /><br />
                             About:
                             <br />
