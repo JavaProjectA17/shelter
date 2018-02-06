@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Shelter;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 
 class ShelterController extends Controller
 {
@@ -14,7 +13,6 @@ class ShelterController extends Controller
     public function index(){
         $shelters = Shelter::all();
         $shelter = $shelters->where('user_id', Auth::user()->id)->first();
-        //dd($shelter);
         if (is_null($shelter)){
             return view('main.index');
         }if($shelter->approve == 0){
