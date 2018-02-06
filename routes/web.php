@@ -16,15 +16,13 @@ Route::get('/', ['as' => 'index', 'uses' => 'User\MainController@index']);
 Route::get('/about', ['as' => 'about', 'uses' => 'User\MainController@about']);
 Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
-Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'uses' => 'User\MainController@add_new_shelter']);
-Route::post('/add_new_shelter', ['as' => 'add_new_shelter.create', 'uses' => 'Employee\ShelterController@create']);
+Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'middleware' => 'auth', 'uses' => 'User\MainController@add_new_shelter']);
+Route::post('/add_new_shelter', ['as' => 'add_new_shelter.create', 'middleware' => 'auth', 'uses' => 'Employee\ShelterController@create']);
 
 
 Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
 
 Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
-
-Route::get('/employee', 'Employee\EditController@index');
 
 Auth::routes();
 
@@ -52,6 +50,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], fu
     Route::resource('/users', 'Admin\UsersController');
 });
 
+Route::get('/employee', ['middleware' => 'auth', 'uses' => 'Employee\ShelterController@index'])->name('employee.index');
 Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
     Route::resource('animals', 'AnimalsController');
 });
