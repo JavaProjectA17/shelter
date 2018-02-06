@@ -14,9 +14,9 @@ class ShelterController extends Controller
         $shelters = Shelter::all();
         $shelter = $shelters->where('user_id', Auth::user()->id)->first();
         if (is_null($shelter)){
-            return view('main.index');
+            return redirect('main.index');
         }if($shelter->approve == 0){
-            return view('main.index');
+            return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
         }else{
             return view('employee.index')
                 ->with([
