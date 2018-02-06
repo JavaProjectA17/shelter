@@ -132,7 +132,7 @@
                     </a>
                 </li>
                 <li >
-                    <a href="/admin/novelties">
+                    <a href="{{route('admin.novelties.index')}}">
                         <i class="fa  fa-tags"></i>
                         <span>News</span>
                         <span class="pull-right-container"></span>
@@ -145,21 +145,21 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/animalcategorys">
+                    <a href="{{route('admin.animalcategorys.index')}}">
                         <i class="fa fa-list"></i>
                         <span>Categories</span>
                         <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li >
-                    <a href="/admin/animals">
+                    <a href="{{route('admin.animals.index')}}">
                         <i class="fa fa-qq"></i>
                         <span>Animal</span>
                         <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li >
-                    <a href="/admin/shelters">
+                    <a href="{{route('admin.shelters.index')}}">
                         <i class="fa fa-qq"></i>
                         <span>Shelters</span>
                         <span class="pull-right-container"></span>

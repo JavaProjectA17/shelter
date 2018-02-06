@@ -30,14 +30,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//*
-//*   admin routes
-//*
 Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
-
+///////////////////////////////////////////////////////////////////////////////////////
+//   start admin routes
+///////////////////////////////////////////////////////////////////////////////////////
 Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::post('/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
@@ -51,6 +50,9 @@ Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as'
     Route::resource('/novelties', 'Admin\NoveltiesController');
     Route::resource('/users', 'Admin\UsersController');
 });//->middleware('auth', 'admin:admin');
+///////////////////////////////////////////////////////////////////////////////////////
+//   end admin routes
+///////////////////////////////////////////////////////////////////////////////////////
 
 Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
     Route::resource('animals', 'AnimalsController');
