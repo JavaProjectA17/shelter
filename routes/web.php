@@ -30,27 +30,29 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-//*
-//*   admin routes
-//*
 Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
-Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
+///////////////////////////////////////////////////////////////////////////////////////
+//   start admin routes
+///////////////////////////////////////////////////////////////////////////////////////
+Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
-Route::get('/admin/home', 'HomeController@admin');
+    Route::post('/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
+    Route::get('/home', 'HomeController@admin');
+    Route::get('/shelters/approved', ['uses' => 'Admin\SheltersController@approved', 'as' => 'shelters.approved']);
+    Route::get('/shelters/waiting_to_approve', ['uses' => 'Admin\SheltersController@waiting_to_approve', 'as' => 'shelters.waiting_to_approve']);
 
-Route::get('/admin/shelters/approved', ['uses' => 'Admin\SheltersController@approved', 'as' => 'admin.shelters.approved']);
-Route::get('/admin/shelters/waiting_to_approve', ['uses' => 'Admin\SheltersController@waiting_to_approve', 'as' => 'admin.shelters.waiting_to_approve']);
-
-Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function () {
     Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
     Route::resource('/animals', 'Admin\AnimalsController');
     Route::resource('/shelters', 'Admin\SheltersController');
     Route::resource('/novelties', 'Admin\NoveltiesController');
     Route::resource('/users', 'Admin\UsersController');
-});
+});//->middleware('auth', 'admin:admin');
+///////////////////////////////////////////////////////////////////////////////////////
+//   end admin routes
+///////////////////////////////////////////////////////////////////////////////////////
 
 Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
     Route::resource('animals', 'AnimalsController');

@@ -19,5 +19,6 @@ $factory->define(App\Shelter::class, function (Faker $faker) {
         'address'=>$faker->text(10),
         'description'=>$faker->text(30),
         'phone'=>$faker->phoneNumber(),
+        'user_id'=>App\User::first()->id,
     ];
 });
