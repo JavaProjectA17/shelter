@@ -41,7 +41,7 @@ class Animal extends Model
 
     public function getAvatar(){
         if ($this->image == null){
-            return 0;
+            return '/imageAnimals/default_profile_image.png';
         }
         return '/imageAnimals/'.$this->image;
     }
