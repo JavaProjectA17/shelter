@@ -40,65 +40,42 @@
         -->
 
         <div class="sidebar-wrapper">
-            <div class="logo">
+            <div class="logo active">
                 <a href="" class="simple-text">
                     Cabinet
                 </a>
             </div>
 
             <ul class="nav">
-                {{--<li>--}}
-                {{--<a href="dashboard.html">--}}
-                {{--<i class="ti-panel"></i>--}}
-                {{--<p>Dashboard</p>--}}
-                {{--</a>--}}
-                {{--</li>--}}
-                <li class="active">
+                <li>
+                    <a href="{{route('employee.index')}}">
+                        <i class="ti-panel"></i>
+                        <p>Welcome</p>
+                    </a>
+                </li>
+                <li>
+
                     <a href="employee/edit">
                         <i class="ti-user"></i>
                         <p>Edit</p>
                     </a>
                 </li>
                 <li>
-                <a href="table.html">
-                <i class="ti-view-list-alt"></i>
-                <p>Password</p>
-                </a>
+                    <a href="table.html">
+                        <i class="ti-view-list-alt"></i>
+                        <p>Password</p>
+                    </a>
                 </li>
-                {{--<li>--}}
-                {{--<a href="typography.html">--}}
-                {{--<i class="ti-text"></i>--}}
-                {{--<p>Typography</p>--}}
-                {{--</a>--}}
-                {{--</li>--}}
                 <li>
-                <a href="icons.html">
-                <i class="ti-pencil-alt2"></i>
-                <p>Animals</p>
-                </a>
+                    <a href="icons.html">
+                        <i class="ti-pencil-alt2"></i>
+                        <p>Animals</p>
+                    </a>
                 </li>
-                {{--<li>--}}
-                {{--<a href="maps.html">--}}
-                {{--<i class="ti-map"></i>--}}
-                {{--<p>Maps</p>--}}
-                {{--</a>--}}
-                {{--</li>--}}
-                {{--<li>--}}
-                {{--<a href="notifications.html">--}}
-                {{--<i class="ti-bell"></i>--}}
-                {{--<p>Notifications</p>--}}
-                {{--</a>--}}
-                {{--</li>--}}
-                {{--<li class="active-pro">--}}
-                {{--<a href="upgrade.html">--}}
-                {{--<i class="ti-export"></i>--}}
-                {{--<p>Upgrade to PRO</p>--}}
-                {{--</a>--}}
-                {{--</li>--}}
             </ul>
         </div>
     </div>
-Edit,tablelist icons
+    Edit,tablelist icons
     <div class="main-panel">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -111,43 +88,11 @@ Edit,tablelist icons
                     </button>
                     <a class="navbar-brand" href="#">Shelter</a>
                 </div>
-                {{--<div class="collapse navbar-collapse">--}}
-                    {{--<ul class="nav navbar-nav navbar-right">--}}
-                        {{--<li>--}}
-                            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-                                {{--<i class="ti-panel"></i>--}}
-                                {{--<p>Stats</p>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                        {{--<li class="dropdown">--}}
-                            {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-                                {{--<i class="ti-bell"></i>--}}
-                                {{--<p class="notification">5</p>--}}
-                                {{--<p>Notifications</p>--}}
-                                {{--<b class="caret"></b>--}}
-                            {{--</a>--}}
-                            {{--<ul class="dropdown-menu">--}}
-                                {{--<li><a href="#">Notification 1</a></li>--}}
-                                {{--<li><a href="#">Notification 2</a></li>--}}
-                                {{--<li><a href="#">Notification 3</a></li>--}}
-                                {{--<li><a href="#">Notification 4</a></li>--}}
-                                {{--<li><a href="#">Another notification</a></li>--}}
-                            {{--</ul>--}}
-                        {{--</li>--}}
-                        {{--<li>--}}
-                            {{--<a href="#">--}}
-                                {{--<i class="ti-settings"></i>--}}
-                                {{--<p>Settings</p>--}}
-                            {{--</a>--}}
-                        {{--</li>--}}
-                    {{--</ul>--}}
-
-                {{--</div>--}}
             </div>
         </nav>
 
 
-    @yield('content')
+        @yield('content')
 
         <footer class="footer">
             <div class="container-fluid">

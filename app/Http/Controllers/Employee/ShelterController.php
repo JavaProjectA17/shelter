@@ -5,11 +5,28 @@ namespace App\Http\Controllers\Employee;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Shelter;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class ShelterController extends Controller
 {
 
+    public function index(){
+        $shelters = Shelter::all();
+        $shelter = $shelters->where('user_id', Auth::user()->id)->first();
+        if (is_null($shelter)){
+            return redirect('main.index');
+        }if($shelter->approve == 0){
+            return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
+        }else{
+            return view('employee.index')
+                ->with([
+                    'nameshelter' =>  $shelter->nameshelter,
+                    'address' =>  $shelter->address,
+                    'phone' =>  $shelter->phone,
+                    'description' =>  $shelter->description,
+                ]);
+        }
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -19,17 +36,6 @@ class ShelterController extends Controller
     {
         Shelter::add($request->all(), Auth::user() -> id);
         return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-
     }
 
     /**
