@@ -187,6 +187,11 @@
     </footer>
 </div>
 <!-- Scripts -->
+<script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'editor' );
+        CKEDITOR.replace( 'editor2' );
+    </script>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

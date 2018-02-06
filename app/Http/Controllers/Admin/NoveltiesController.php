@@ -27,6 +27,7 @@ class NoveltiesController extends Controller
     public function create()
     {
         //
+        return view('admin.novelties.create');
     }
 
     /**
@@ -38,6 +39,8 @@ class NoveltiesController extends Controller
     public function store(Request $request)
     {
         //
+        Novelty::create($request->all());
+        return redirect()->route('admin.novelties.index')->with(['message' => 'Category added successfully']);
     }
 
     /**
@@ -60,6 +63,8 @@ class NoveltiesController extends Controller
     public function edit($id)
     {
         //
+        $novelty = Novelty::findOrFail($id);
+        return view('admin.novelties.edit')->with('novelty', $novelty);
     }
 
     /**
@@ -72,6 +77,9 @@ class NoveltiesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $novelty = Novelty::findOrFail($id);
+        $novelty->update($request->all());
+        return redirect()->route('admin.novelties.index')->with(['message' => 'News updated successfully!']);
     }
 
     /**
@@ -83,5 +91,8 @@ class NoveltiesController extends Controller
     public function destroy($id)
     {
         //
+        $novelties = Novelty::findOrFail($id);
+        $novelties->delete();
+        return redirect()->route('admin.novelties.index')->with(['message' => 'News deleted successfully!']);
     }
 }
