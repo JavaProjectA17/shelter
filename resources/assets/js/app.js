@@ -7,6 +7,13 @@
 
 require('./bootstrap');
 
+// CREDITOR
+$( document ).ready(function() {
+	CKEDITOR.replace( 'short_description' );
+	CKEDITOR.replace( 'description' );
+})
+
+
 window.Vue = require('vue');
 
 /**
