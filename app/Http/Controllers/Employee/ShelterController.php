@@ -12,15 +12,22 @@ class ShelterController extends Controller
 {
 
     public function index(){
-        $id = Auth::user()->id;
-        $shelter = DB::table('shelters')->where('user_id', $id)->first();
-        return view('employee.index')
-            ->with([
-                'nameshelter' =>  $shelter->nameshelter,
-                'address' =>  $shelter->address,
-                'phone' =>  $shelter->phone,
-                'description' =>  $shelter->description,
-            ]);
+        $shelters = Shelter::all();
+        $shelter = $shelters->where('user_id', Auth::user()->id)->first();
+        //dd($shelter);
+        if (is_null($shelter)){
+            return view('main.index');
+        }if($shelter->approve == 0){
+            return view('main.index');
+        }else{
+            return view('employee.index')
+                ->with([
+                    'nameshelter' =>  $shelter->nameshelter,
+                    'address' =>  $shelter->address,
+                    'phone' =>  $shelter->phone,
+                    'description' =>  $shelter->description,
+                ]);
+        }
     }
     /**
      * Show the form for creating a new resource.
