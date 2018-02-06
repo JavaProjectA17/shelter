@@ -26,6 +26,8 @@ Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.art
 
 Route::get('/employee', 'Employee\EditController@index');
 
+Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
