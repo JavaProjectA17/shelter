@@ -33,6 +33,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*
 //*   admin routes
 //*
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function (){
+    Route::resource('/slider','Admin\SliderImagesController');
+}); //This route group is responsible for slider CRUD
 
 
 Route::post('admin/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);

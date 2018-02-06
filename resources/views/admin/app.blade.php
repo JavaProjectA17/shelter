@@ -164,6 +164,13 @@
             </span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('admin.slider.index')}}">
+                        <i class="fa fa-caret-square-o-right"></i>
+                        <span>Slider</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
