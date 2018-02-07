@@ -26,7 +26,8 @@ Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.art
 
 Route::get('/employee', 'Employee\EditController@index');
 
-Route::resource('/employee/edit','Employee\EditFormController',['only' =>['index','show']]);
+
+Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','show']]);
 
 //Route::match(['get','post'],'/employee/edit',['uses'=>'Employee\EditFormController','as'=>'edit']);
 

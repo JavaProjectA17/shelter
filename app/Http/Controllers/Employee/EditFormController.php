@@ -17,11 +17,13 @@ class EditFormController extends Controller
    }
 
    public function show(Request $request){
-//       $request->all();
-//       echo '<h1>'.$request->input('').'</h1>';
 
-           $request->flash();
-
-       return $this->index();
+        $request->flash();
+//        return $this->index();
    }
+
+    public function store(Request $request){
+        $request->all();
+        echo '<h1>'.$request->input('').'</h1>';
+    }
 }

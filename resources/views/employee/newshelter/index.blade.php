@@ -1,9 +1,8 @@
 @extends('employee.home')
 @section('content')
-    <pre>
-{{print_r(Session::all())}}
-</pre>
-
+    {{--<pre>--}}
+{{--{{print_r(Session::all())}}--}}
+{{--</pre>--}}
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -108,7 +107,7 @@
                             <h4 class="title">Edit Profile</h4>
                         </div>
                         <div class="content">
-                            <form method="post" action="/employee/edit">
+                            <form method="post" action={{route('edit')}}>
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-md-5">
