@@ -15,8 +15,28 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role'
     ];
+
+//    public function hasRole($role) {
+//        $this->role == $role;
+//    }
+//
+//    public static function add($values) {
+//        $user = new static();
+//        $user->fill($values);
+//        $user->password = bcrypt($values['password']);
+//        $user->save();
+//
+//        return $user;
+//    }
+//
+//    public function bcryptPassword($password) {
+//        if ($password != null) {
+//            $this->password = bcrypt($password); // TODO
+//            return bcrypt($password);
+//        }
+//    }
 
     /**
      * The attributes that should be hidden for arrays.

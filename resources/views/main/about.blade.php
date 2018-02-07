@@ -1,0 +1,9 @@
+@extends('layouts.app')
+@section('links')
+  @include('main.about.links')
+@endsection
+@section('content')
+  @include('main.about.do')
+  @include('main.about.useful')
+  @include('main.about.staff')
+@endsection

@@ -11,6 +11,54 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/*main*/
+Route::get('/', ['as' => 'index', 'uses' => 'User\MainController@index']);
+Route::get('/about', ['as' => 'about', 'uses' => 'User\MainController@about']);
+Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
+Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
+Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'middleware' => 'auth', 'uses' => 'User\MainController@add_new_shelter']);
+Route::post('/add_new_shelter', ['as' => 'add_new_shelter.create', 'middleware' => 'auth', 'uses' => 'Employee\ShelterController@create']);
+
+
+Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index');
+
+Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
+
+Route::get('/employee', 'Employee\EditController@index');
+
+Route::resource('/employee/edit','Employee\EditFormController',['only' =>['index','show']]);
+
+//Route::match(['get','post'],'/employee/edit',['uses'=>'Employee\EditFormController','as'=>'edit']);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
+
+//Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
+
+///////////////////////////////////////////////////////////////////////////////////////
+//   start admin routes
+///////////////////////////////////////////////////////////////////////////////////////
+Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+
+    Route::post('/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
+    Route::get('/home', 'HomeController@admin');
+    Route::get('/shelters/approved', ['uses' => 'Admin\SheltersController@approved', 'as' => 'shelters.approved']);
+    Route::get('/shelters/waiting_to_approve', ['uses' => 'Admin\SheltersController@waiting_to_approve', 'as' => 'shelters.waiting_to_approve']);
+
+    Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
+    Route::resource('/animals', 'Admin\AnimalsController');
+    Route::resource('/shelters', 'Admin\SheltersController');
+    Route::resource('/novelties', 'Admin\NoveltiesController');
+    Route::resource('/users', 'Admin\UsersController');
+});//->middleware('auth', 'admin:admin');
+///////////////////////////////////////////////////////////////////////////////////////
+//   end admin routes
+///////////////////////////////////////////////////////////////////////////////////////
+
+Route::get('/employee', ['middleware' => 'auth', 'uses' => 'Employee\ShelterController@index'])->name('employee.index');
+Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
+    Route::resource('animals', 'AnimalsController');
 });
