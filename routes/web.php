@@ -59,6 +59,6 @@ Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as'
 ///////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/employee', ['middleware' => 'auth', 'uses' => 'Employee\ShelterController@index'])->name('employee.index');
-Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
+Route::group(['middleware' => 'auth','as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
     Route::resource('animals', 'AnimalsController');
 });

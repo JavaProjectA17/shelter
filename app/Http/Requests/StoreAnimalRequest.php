@@ -26,7 +26,6 @@ class StoreAnimalRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'image' => 'required',
             'about' => 'required'
         ];
     }
