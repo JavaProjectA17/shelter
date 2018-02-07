@@ -126,42 +126,43 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active treeview">
-
                     <a href="#">{{--<---------------------------------------------------------------------------------This link redirects to dashboard panel--}}
                         <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                        <span class="pull-right-container">
-
-            </span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li >
-                    <a href="/admin/novelties">
+                    <a href="{{route('admin.novelties.index')}}">
                         <i class="fa  fa-tags"></i>
                         <span>News</span>
-                        <span class="pull-right-container">
-                        </span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li>
                     <a href="#">
                         <i class="fa  fa-users"></i> <span>Users</span>
-                        <span class="pull-right-container">
-            </span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/animalcategorys">
+                    <a href="{{route('admin.animalcategorys.index')}}">
                         <i class="fa fa-list"></i>
                         <span>Categories</span>
-                        <span class="pull-right-container">
-            </span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li >
                     <a href="{{route('admin.animals.index')}}">
-                        <i class="fa fa-qq"></i> <span>Animal</span>
-                        <span class="pull-right-container">
-            </span>
+                        <i class="fa fa-qq"></i>
+                        <span>Animal</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <li >
+                    <a href="{{route('admin.shelters.index')}}">
+                        <i class="fa fa-qq"></i>
+                        <span>Shelters</span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
             </ul>

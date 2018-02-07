@@ -5,36 +5,16 @@
         </div>
         <div class="clear"></div>
         <ul class="carousel1">
-            <li class="grid_4"> <img src="user/images/carousel1_img1.jpg" alt="" class="img_inner fleft">
+
+        @foreach($animals as $animal)
+
+            <li class="grid_4"> <img src={{$animal->image}} alt="" class="img_inner fleft">
                 <div class="extra_wrapper pad1">
-                    <p class="col2"><a href="#">Praesent quis orcidiam viverralopr </a></p>
-                    Raes quis orci eget diam viverralopr con equat. Fusce sagit quam ihui hyhy kolo opirlo pulvinarhjkjo. </div>
+                    <p class="col2"><a href="#">{{$animal->name}}</a></p>
+                    {{$animal->about}}</div>
             </li>
-            <li class="grid_4"> <img src="user/images/carousel1_img2.jpg" alt="" class="img_inner fleft">
-                <div class="extra_wrapper pad1">
-                    <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>
-                    Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
-            </li>
-            <li class="grid_4"> <img src="user/images/carousel1_img3.jpg" alt="" class="img_inner fleft">
-                <div class="extra_wrapper pad1">
-                    <p class="col2"><a href="#">Tyeraesent quis hojo rcieget iam iverralji.</a></p>
-                    Eroaesent quis orci ediam viverralopr con jikjulo poiu retyulo hyk equat. Usce sagittis ki quam ihui hyhy opirp. </div>
-            </li>
-            <li class="grid_4"> <img src="user/images/carousel1_img4.jpg" alt="" class="img_inner fleft">
-                <div class="extra_wrapper pad1">
-                    <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>
-                    Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
-            </li>
-            <li class="grid_4"> <img src="user/images/carousel1_img5.jpg" alt="" class="img_inner fleft">
-                <div class="extra_wrapper pad1">
-                    <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>
-                    Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
-            </li>
-            <li class="grid_4"> <img src="user/images/carousel1_img6.jpg" alt="" class="img_inner fleft">
-                <div class="extra_wrapper pad1">
-                    <p class="col2"><a href="#">Aeraesent quis hoj rcieget diam iverral.</a></p>
-                    Loaesent quis orci diam viverralopr con equat. Lusce sagittis quam ihui hyhy opir pulvinarhjk velit. </div>
-            </li>
+         @endforeach
+
         </ul>
     </div>
 </div>

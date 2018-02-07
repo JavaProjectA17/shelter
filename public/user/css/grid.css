@@ -46,6 +46,12 @@ body {
   margin-left: 10px;
   margin-right: 10px;
 }
+.forRight{
+  float: right;
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
+}
 
 .push_1, .pull_1,
 .push_2, .pull_2,

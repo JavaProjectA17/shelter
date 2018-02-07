@@ -16,7 +16,7 @@
                                 </h4>
                             </div>
                             <p class="description text-center">
-                                "Описание"
+                                "Описание какое-то"
                             </p>
                         </div>
                         <hr>
@@ -62,7 +62,7 @@
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <div class="avatar">
-                                                <img src="/assets/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                <img src="assets/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                             </div>
                                         </div>
                                         <div class="col-xs-6">
@@ -102,80 +102,47 @@
                     <div class="card">
                         <div class="header">
                             <h4 class="title">Edit Profile</h4>
-                        </div>
-                        <div class="content">
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group">
-
+                            <div class="content">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Shelter`s name</label>
+                                                <p>{{$nameshelter}}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-3">
-
-
-
-                                    </div>
-                                    <div class="col-md-4">
-
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Shelter`s Name</label>
-                                            <input type="text" class="form-control border-input" placeholder="Shelter`s name" name="name">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Address</label>
+                                                <p>{{$address}}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="text" class="form-control border-input" placeholder="Email" name="email">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <p>{{$phone}}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Address</label>
-                                            <input type="text" class="form-control border-input" placeholder="Address" name="address">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Description</label>
+                                                <p>{{$description}}</p>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="text" class="form-control border-input" placeholder="Phone" name="phone">
-                                        </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn btn-info btn-fill btn-wd" disabled>Update Profile</button>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>Description</label>
-                                            <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" name="description">
-   </textarea>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="text-center">
-                                    <button type="submit" class="btn btn-info btn-fill btn-wd">Update Profile</button>
-                                </div>
-                                <div class="clearfix"></div>
-                            </form>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
