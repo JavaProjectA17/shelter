@@ -20,6 +20,7 @@ class CreateNoveltiesTable extends Migration
             $table->string('image',100)->nullable();
             $table->string('short_description',200)->nullable();
             $table->text('description')->nullable();
+            $table->date('start')->nullable();
             $table->boolean('relevant')->default(False);
             $table->boolean('confirmed')->default(False);
 

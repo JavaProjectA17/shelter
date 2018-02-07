@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-2">
+            <div class="col-md-8 col-md-offset">
                 <div class="panel panel-default">
                     <div class="panel-heading">Animals</div>
 
@@ -28,7 +28,7 @@
                             @forelse($animals as $animal)
                                 <tr>
                                     <td>{{ $animal->name }}</td>
-                                    <td>{{ $animal->image }}</td>
+                                    <td><image class="AnimalImage" src="{{$animal->getAvatar()}} "/></td>
                                     <td>{{ $animal->about }}</td>
                                     <td>{{ $animal->birth_date }}</td>
                                     <td>{{ $animal->categoryName() }}</td>

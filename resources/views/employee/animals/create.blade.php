@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-2">
+            <div class="col-md-8 col-md-offset">
                 <div class="panel panel-default">
                     <div class="panel-heading">Add New Pet</div>
 
@@ -15,15 +15,15 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ route('employee.animals.store') }}" method="post">
+                        <form action="{{ route('employee.animals.store') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             Pet name:
                             <br />
                             <input type="text" name="name" value="{{ old('name') }}" />
                             <br /><br />
-                            Pet View:
+                            Pet Image:
                             <br />
-                            <input type="text" name="image" value="{{ old('image') }}" />
+                            <input type="file" name="image" accept="image/*" />
                             <br /><br />
                             About:
                             <br />
@@ -39,7 +39,7 @@
                             <br />
                             <input type="text" name="birth_date" value="{{ old('birth_date') }}" />
                             <br /><br />
-                            Animal Category
+                            Shelter
                             <select name="shelter_id" class="form-control" style="width: 17%">
                                 @foreach($shelters as $shelter)
                                     <option value="{{$shelter->id}}">{{$shelter->nameshelter}}</option>

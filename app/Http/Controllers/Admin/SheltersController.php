@@ -15,34 +15,35 @@ class SheltersController extends Controller
      */
     public function index()
     {
+        $active = 'all';
         $shelters = Shelter::paginate(10);
-        return view('admin.shelters.index', compact('shelters'));
+        return view('admin.shelters.index', compact("shelters", "active"));
     }
 
     public function approved() {
+        $active = 'approved';
         $shelters = Shelter::where('approve', '=', true)->paginate(10);
-        return view('admin.shelters.index', compact('shelters'));
+        return view('admin.shelters.index', compact("shelters", "active"));
     }
 
     public function waiting_to_approve() {
+        $active = 'waiting';
         $shelters = Shelter::where('approve', '=', false)->paginate(10);
-        return view('admin.shelters.index', compact('shelters'));
+        return view('admin.shelters.index', compact("shelters", "active"));
     }
 
     public function toggleActive(Request $request, $id) {
-        $shelters = Shelter::findOrFail($id);
-        if($shelters->approve) {
-            $shelters->approve = false;
-            $shelters->save();
-            $shelters->update($request->all());
-            return redirect()->route('admin.shelters.approved');
-        }
-        else {
-            $shelters->approve = true;
-            $shelters->save;
-            $shelters->update($request->all());
+        $shelter = Shelter::findOrFail($id);
+        $shelter->approve = !$shelter->approve;
+        $shelter->save();
+        $shelter->update($request->all());
+
+        if($shelter->approve) {
+            $shelter->send_form();
             return redirect()->route('admin.shelters.waiting_to_approve');
         }
+        else
+            return redirect()->route('admin.shelters.approved');
     }
 
 
