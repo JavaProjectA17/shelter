@@ -41,15 +41,6 @@
                         <div class="header">
                             <h4 class="title">Edit Profile</h4>
                             <div class="content">
-                                {!! Form::open([ route('add_new_shelter.create'), 'id'=>'form', 'method'=>'POST']) !!}
-                                <div class="form-inputs">
-                                    {{ Form::text("nameshelter", $value = null, ['placeholder' => 'Enter the name of the shelter']) }}
-                                    {{ Form::text('address', $value = null, ['placeholder' => 'Enter adress of the shelter']) }}
-                                    {{ Form::text('phone', $value = null, ['placeholder' => 'Enter contact phone number']) }}
-                                    {{ Form::text('description', $value = null, ['placeholder' => 'Enter description']) }}
-                                    {{Form::submit('Send', ['class' => 'btn'])}}
-                                </div>
-                                {!! Form::close() !!}
                                 <form>
                                     <div class="row">
                                         <div class="col-md-12">

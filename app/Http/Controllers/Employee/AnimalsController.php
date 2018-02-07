@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Animal;
 use App\Http\Requests\StoreAnimalRequest;
 use App\AnimalCategory;
-use Illuminate\Http\Request;
 use App\Shelter;
 
 class AnimalsController extends Controller
@@ -42,7 +41,8 @@ class AnimalsController extends Controller
      */
     public function store(StoreAnimalRequest $request)
     {
-        Animal::create($request->all());
+        $animal = Animal::create($request->all());
+        $animal->uploadImage($request->file('image'));
         return redirect()->route('employee.animals.index')->with(['message' => 'Pet added successfully']);
     }
 
@@ -80,8 +80,12 @@ class AnimalsController extends Controller
      */
     public function update(StoreAnimalRequest $request, $id)
     {
+
         $animal = Animal::findOrFail($id);
+        $animal->deleteImage();
+        $animal->uploadImage($request->file('image'));
         $animal->update($request->all());
+
         return redirect()->route('employee.animals.index')->with(['message' => 'Pet updated successfully']);
     }
 
@@ -94,6 +98,7 @@ class AnimalsController extends Controller
     public function destroy($id)
     {
         $animal = Animal::findOrFail($id);
+        $animal->deleteImage();
         $animal->delete();
         return redirect()->route('employee.animals.index')->with(['message' => 'Pet deleted successfully']);
     }
