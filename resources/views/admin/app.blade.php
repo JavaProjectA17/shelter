@@ -54,10 +54,6 @@
     <header class="main-header">
         <!-- Logo -->
 
-        <a href="{{route('home')}}" class="logo"> {{--This link redirects to home page--}}
-            <span class="logo-lg">MAIN PAGE</span>
-        </a>
-
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
             <div class="container">
@@ -73,7 +69,7 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -123,7 +119,7 @@
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
 
-                <li class="active treeview">
+                <li>
 
                     <a href="{{route('home')}}">
                         <i class="fa fa-dashboard"></i> <span>Home</span>
