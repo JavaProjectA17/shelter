@@ -41,12 +41,21 @@
                         <div class="header">
                             <h4 class="title">Edit Profile</h4>
                             <div class="content">
+                                {!! Form::open([ route('add_new_shelter.create'), 'id'=>'form', 'method'=>'POST']) !!}
+                                <div class="form-inputs">
+                                    {{ Form::text("nameshelter", $value = null, ['placeholder' => 'Enter the name of the shelter']) }}
+                                    {{ Form::text('address', $value = null, ['placeholder' => 'Enter adress of the shelter']) }}
+                                    {{ Form::text('phone', $value = null, ['placeholder' => 'Enter contact phone number']) }}
+                                    {{ Form::text('description', $value = null, ['placeholder' => 'Enter description']) }}
+                                    {{Form::submit('Send', ['class' => 'btn'])}}
+                                </div>
+                                {!! Form::close() !!}
                                 <form>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Current password</label>
-                                                <input type="text" class="form-control border-input" placeholder="Phone" name="phone">
+                                                <input type="text" class="form-control border-input" placeholder="Current password" name="phone">
                                             </div>
                                         </div>
                                     </div>
@@ -54,7 +63,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>New password</label>
-                                                <input type="text" class="form-control border-input" placeholder="Phone" name="phone">
+                                                <input type="text" class="form-control border-input" placeholder="New password" name="phone">
                                             </div>
                                         </div>
                                     </div>
@@ -62,7 +71,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Confirm new password</label>
-                                                <input type="text" class="form-control border-input" placeholder="Phone" name="phone">
+                                                <input type="text" class="form-control border-input" placeholder="Confirm new password" name="phone">
                                             </div>
                                         </div>
                                     </div>
