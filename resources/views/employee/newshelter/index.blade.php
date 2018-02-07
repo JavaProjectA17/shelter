@@ -1,5 +1,9 @@
 @extends('employee.home')
 @section('content')
+    <pre>
+{{print_r(Session::all())}}
+</pre>
+
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -104,7 +108,8 @@
                             <h4 class="title">Edit Profile</h4>
                         </div>
                         <div class="content">
-                            <form>
+                            <form method="post" action="/employee/edit">
+                                {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="form-group">
@@ -125,13 +130,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Shelter`s Name</label>
-                                            <input type="text" class="form-control border-input" placeholder="Shelter`s name" name="name">
+                                            <input type="text" class="form-control border-input" placeholder="Shelter`s name" name="name" value={{old('nameshelter')}}>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="text" class="form-control border-input" placeholder="Email" name="email">
+                                            <input type="text" class="form-control border-input" placeholder="Email" name="email" value={{old('email')}}>
                                         </div>
                                     </div>
                                 </div>
@@ -140,7 +145,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Address</label>
-                                            <input type="text" class="form-control border-input" placeholder="Address" name="address">
+                                            <input type="text" class="form-control border-input" placeholder="Address" name="address" value={{old('address')}}>
                                         </div>
                                     </div>
                                 </div>
@@ -149,7 +154,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Phone</label>
-                                            <input type="text" class="form-control border-input" placeholder="Phone" name="phone">
+                                            <input type="text" class="form-control border-input" placeholder="Phone" name="phone" value={{old('phone')}}>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
@@ -166,7 +171,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" name="description">
+                                            <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" name="description">{{old('description')}}</textarea>
    </textarea>
                                         </div>
                                     </div>
