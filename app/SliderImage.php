@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class SliderImage extends Model
 {
-    protected $fillable = ['image'];
+    protected $fillable = ['images'];
 
     public  function uploadImage($image){
         if($image == null) {
@@ -15,10 +15,16 @@ class SliderImage extends Model
             $this->removeImage();
             $filename = str_random(10) . '.' . $image->extension();
             $image->storeAs('uploads', $filename);
-            $this->imageSlider = $filename;
+            $this->images = $filename;
+            //dd($this->images);
             $this->save();
     }
 
+    public function edit($field)
+    {
+        $this->fill($field);
+        $this->save();
+    }
 
     public function remove()
     {
@@ -36,10 +42,12 @@ class SliderImage extends Model
 
     public function getImage()
     {
-        if ($this->imageSlider == null) {
+        if ($this->images == null) {
             return '/uploads/user2-160x160.jpg';
         }
         return "/uploads/" . $this->imageSlider;
     }
+
+
 
 }

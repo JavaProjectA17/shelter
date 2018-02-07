@@ -13,9 +13,9 @@ class CreateSliderImages extends Migration
      */
     public function up()
     {
-        Schema::create('slider', function (Blueprint $table) {
+        Schema::create('slider_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image',255);
+            $table->string('images',255);
             $table->timestamps();
         });
     }

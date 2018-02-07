@@ -5,7 +5,11 @@
     <div class="container">
         <div class="row">
             <h3>Slider - list of images</h3>
-            <a href="{{route('admin.slider.create')}}" class = "btn btn-success"> Create</a>
+            <br>
+            <a href="{{route('admin.slider.create')}}" class = "btn btn-success pull-right"> Create</a>
+            <br>
+            <br>
+            <br>
             <div class="col-md-10 col-md-offset-1">
                 <table class="table">
                     <thead>
@@ -20,7 +24,7 @@
                     @foreach($images as $image)
                         <tr>
                             <td>{{$image->id}}</td>
-                            <td><img src="{{$image->getImage()}}" alt=""></td>
+                            <td><img src="{{$image->getImage()}}{{$image->images}}" alt=""></td>
                             <td>
                                 <a href="{{route('admin.slider.edit', $image->id)}}">
                                     <i class="fa fa-edit"></i>

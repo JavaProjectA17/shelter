@@ -39,12 +39,10 @@ class SliderImagesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,
-            [
-                'imageSlider'  => 'image|required'
-            ]);
-        $image = SliderImage::add($request->all());
+        $image = new SliderImage($request->all());
+     //   dd($request->file('imageSlider'));
         $image->uploadImage($request->file('imageSlider'));
+
        return redirect()->route('admin.slider.index');
     }
 
@@ -80,11 +78,8 @@ class SliderImagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $images = SliderImage::find($id);
-        $this->validate($request,
-            [
-                'image'  =>'imageSlider'
-            ]);
+
+        $images = SliderImage::findOrFail($id);
         $images->edit($request->all());
         $images->uploadImage($request->file('imageSlider'));
         return redirect()->route('admin.slider.index');

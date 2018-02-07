@@ -45,16 +45,18 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link rel="stylesheet" href="/css/button_remove_style.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{route('home')}}" class="logo"> {{--<---------------------------------------------------------------------------------This link redirects to home page--}}
+        {{--<a href="{{route('home')}}" class="logo"> --}}{{--<---------------------------------------------------------------------------------This link redirects to home page--}}
 
-            <span class="logo-lg"><b>Nursery</b>_Admin</span>
-        </a>
+            {{--<span class="logo-lg"><b>Nursery</b>_Admin</span>--}}
+        {{--</a>--}}
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
             <div class="container">
@@ -127,8 +129,8 @@
                 <li class="header">MAIN NAVIGATION</li>
                 <li class="active treeview">
 
-                    <a href="#">{{--<---------------------------------------------------------------------------------This link redirects to dashboard panel--}}
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                    <a href="{{route('home')}}">
+                        <i class="fa fa-dashboard"></i> <span>Home</span>
                         <span class="pull-right-container">
 
             </span>
@@ -178,7 +180,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
+        <br><br>
 
     @yield('content')
 
