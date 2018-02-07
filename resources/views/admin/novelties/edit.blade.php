@@ -37,7 +37,7 @@
                             <br /><br />
                             Date of publication:
                             <br />
-                            <input type="date" name="publication" value="{{ $novelty->start }}" />
+                            <input type="date" name="start" value="{{ $novelty->start }}" />
                             <br /><br />
                             <input type="submit" value="Save" class="btn btn-primary" />
                             <a class="btn btn-danger" href="{{ route('admin.novelties.index') }}"><i class="fa fa-btn fa-bank"></i>Cancel</a>
