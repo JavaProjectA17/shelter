@@ -32,9 +32,12 @@ Route::resource('/employee/edit','Employee\EditFormController',['only' =>['index
 //*
 //*   admin routes
 //*
+
 Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function (){
     Route::resource('/slider','Admin\SliderImagesController');
 }); //This route group is responsible for slider CRUD
+
+
 
 
 
