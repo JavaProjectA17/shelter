@@ -24,10 +24,6 @@ Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index')
 
 Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
 
-Route::get('/employee', 'Employee\EditController@index');
-
-Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -57,6 +53,7 @@ Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as'
 ///////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/employee', ['middleware' => 'auth', 'uses' => 'Employee\ShelterController@index'])->name('employee.index');
+Route::get('/employee/change_password', ['middleware' => 'auth', 'uses' => 'Employee\ShelterController@change_password'])->name('employee.change_password');
 Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
     Route::resource('animals', 'AnimalsController');
 });
