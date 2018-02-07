@@ -20,7 +20,7 @@ class MainController extends Controller
         $shelters = Shelter::where('approve', '>', '0')->get(['nameshelter','description','address']);
 
         $animalsForView =UsersFunction::GetFromArrey(5,$animals);
-        $sheltersForView = UsersFunction::GetFromArrey(5,$shelters);
+        $sheltersForView = UsersFunction::GetFromArrey(3,$shelters);
 
         return view('main.index', [
             'animals'=>$animalsForView,
