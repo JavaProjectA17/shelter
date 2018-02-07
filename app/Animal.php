@@ -8,44 +8,53 @@ use Illuminate\Support\Facades\File;
 class Animal extends Model
 {
     protected $fillable = ['name', 'about','category_id','shelter_id','birth_date'];
-
-    public static function add($values){
-        $animal = new static;
-        $animal->fill($values);
-        $animal->save();
-
-        return $animal;
-    }
+    public $pathToImage = 'uploads/images/animals/';
+    const PATHTOIMAGE = 'uploads/images/animals/';
 
     public function uploadImage($image){
         if ($image != null){
-
+            $fullPathToImage = self::PATHTOIMAGE.$this->id;
             $imageName = time().$this->id.'.'.$image->extension();
 
-            $image->move('imageAnimals',$imageName);
-            $this->image = $imageName;
-            $this->save();
+            if (File :: makeDirectory ( $fullPathToImage )){
+                $image->move($fullPathToImage,$imageName);
+                $this->image = $imageName;
+                $this->save();
+            }
+            else return false;
         }
     }
+
+
 
     public function deleteImage(){
-        if ($this->image != null)
-            if (File::exists('imageAnimals/'.$this->image))
-                File::delete('imageAnimals/'.$this->image);
+        if ($this->image != null) {
+            $fullPathToImage = $this->pathToImage.$this->id;
+
+            if (File::isDirectory($fullPathToImage)){
+                if(File::exists($fullPathToImage.'/'.$this->image)){
+                    File::delete($fullPathToImage.'/'.$this->image);
+                    File::deleteDirectory($fullPathToImage);
+                    $this->image = null;
+
+            }
+                else return false;
+            }
+            else return false;
+        }
     }
 
-    public function remove(){
-        $this->deleteImage();
-        $this->delete();
-    }
 
     public function getAvatar(){
-        if ($this->image == null){
-            return '/imageAnimals/default_profile_image.png';
-        }
-        return '/imageAnimals/'.$this->image;
-    }
+        $fullPathToImage = '/'.$this->pathToImage.$this->id.'/';
+        $fullPathTodefaultImage = '/'.$this->pathToImage.'default/defaultImage.jpeg';
 
+        if ($this->image == null){
+            return $fullPathTodefaultImage;
+        }
+        return $fullPathToImage.$this->image;
+
+    }
     public function category()
     {
         return $this->belongsTo('App\AnimalCategory');

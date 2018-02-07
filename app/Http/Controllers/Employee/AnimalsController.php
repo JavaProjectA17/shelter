@@ -41,7 +41,7 @@ class AnimalsController extends Controller
      */
     public function store(StoreAnimalRequest $request)
     {
-        $animal = Animal::add($request->all());
+        $animal = Animal::create($request->all());
         $animal->uploadImage($request->file('image'));
         return redirect()->route('employee.animals.index')->with(['message' => 'Pet added successfully']);
     }
@@ -98,7 +98,8 @@ class AnimalsController extends Controller
     public function destroy($id)
     {
         $animal = Animal::findOrFail($id);
-        $animal->remove();
+        $animal->deleteImage();
+        $animal->delete();
         return redirect()->route('employee.animals.index')->with(['message' => 'Pet deleted successfully']);
     }
 }
