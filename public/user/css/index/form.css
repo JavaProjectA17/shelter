@@ -1,0 +1,54 @@
+/*Форма добавления нового питомника*/
+
+.content_page1{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+.grid_5prefix_1{
+    text-align: center;
+    height: 100%;
+    width: 100%;
+
+}
+
+.form-inputs input{
+    text-align: center;
+    font-size: 18px;
+    width: 400px;
+    height: 40px;
+    margin-bottom: 35px;
+    border-radius: 4px;
+    padding-left: 10px;
+}
+
+.desc textarea {
+    font-size: 20px;
+    text-align: center;
+    width: 400px;
+    height: 120px;
+    margin-bottom: 35px;
+    border-radius: 4px;
+
+}
+
+.btn{
+
+    text-align: center;
+    width: 250px;
+    height: 50px;
+    padding: 13px 30px;
+    background-color: #a9ea49;
+    font-size: 25px;
+    font-weight: 600;
+    border-radius: 8px;
+    color: rgba(41, 39, 9, 0.88);
+    border-bottom: 2px solid;
+}
+
+.btn:hover{
+    transition: all 0.5s;
+    background: #f97510;
+}

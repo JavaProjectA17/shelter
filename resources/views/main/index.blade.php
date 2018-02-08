@@ -7,5 +7,5 @@
   @include('main.sections.welcome')
   @include('main.sections.adoption')
   @include('main.sections.careTips')
-
+  @include('main.add_new_shelter.form')
 @endsection

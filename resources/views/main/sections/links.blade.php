@@ -8,6 +8,9 @@
 <script src="user/js/jquery.easing.1.3.js"></script>
 <script src="user/js/tms-0.4.1.js"></script>
 <script src="user/js/jquery.ui.totop.js"></script>
+
+<link rel="stylesheet" href="user/css/index/form.css">
+
 <script>
 $(window).load(function () {
     $('.slider')._TMS({
