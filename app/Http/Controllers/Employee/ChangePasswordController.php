@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Employee;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\ChangePassword;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class ChangePasswordController extends Controller
 {
@@ -17,17 +19,32 @@ class ChangePasswordController extends Controller
     public function edit(Request $request){
 
         if (Auth::attempt(array('id' => Auth::id(), 'password' => $request->old_password))) {
-            dd('update');
+          //  $this->validator($request->all())->validate();
+            if ($request->password == $request->confirm_new_password ){
+                $user = Auth::user();
+                $user->password = bcrypt($request->password);
+                $user->save();
+                return redirect()->back()->with('status', 'Password has been successfully changed!');
+            }
+            return redirect()->back()->with('status', 'wrong old confirm_new_password!');
         }else{
-            return redirect()->back()->with('status', 'Password has been successfully changed!');
+            return redirect()->back()->with('status', 'wrong old password!');
         }
 
-//        $oldpass = bcrypt($request->old_password);
-//        if(Auth::user()->password == $oldpass){
-//            return redirect()->back()->with('status', 'Password has been successfully changed!');
-//        }
-      //  dd(Auth::user()->password, $oldpass);
-        //ChangePassword::create($request->all());
+    }
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'old_password' => 'required|string|min:6',
+            'password' => 'required|string|min:6|confirmed',
+            'confirm_new_password' => 'required|string|min:6|',
+        ]);
+    }
 
+    protected function create($password)
+    {
+        return User::create([
+            'password' => bcrypt($password),
+        ]);
     }
 }
