@@ -16,9 +16,14 @@ class MainController extends Controller
    public function index()
     {
 
-        $animals = Animal::get(['name', 'about', 'image']);
-        $shelters = Shelter::where('approve', '>', '0')->get(['nameshelter','description','address']);
+        $animals = Animal::get(['name', 'about', 'image'])->random(3);
+        $shelters = Shelter::where('approve', '>', '0')->inRandomOrder()->get(['nameshelter','description','address'])->take(2);
 
+       // ->where('approve', '>', '0');
+
+
+
+        dd($animals);
         $animalsForView =UsersFunction::GetFromArrey(5,$animals);
         $sheltersForView = UsersFunction::GetFromArrey(3,$shelters);
 
