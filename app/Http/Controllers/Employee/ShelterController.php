@@ -37,16 +37,5 @@ class ShelterController extends Controller
         Shelter::add($request->all(), Auth::id());
         return redirect()->back()->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
     
 }

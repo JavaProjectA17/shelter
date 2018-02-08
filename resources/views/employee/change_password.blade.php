@@ -42,36 +42,44 @@
                             <h4 class="title">Change password</h4>
                             <div class="content">
 
-                                {!! Form::open([ route('employee.change_password.edit'), 'id'=>'form', 'method'=>'POST']) !!}
+                                {!! Form::open([ route('employee.change_password.edit'), 'method'=>'POST']) !!}
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <label>Current password</label>
                                         <div class="form-group">
-                                            <label>Current password</label>
-                                            {{ Form::text("password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'Current password']) }}
+                                            {{ Form::password("old_password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'Current password']) }}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label>New password</label>
-                                            {{ Form::text("new_password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'New password']) }}
+                                        <label>New password</label>
+                                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                                            {{ Form::password("new_password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'New password']) }}
+                                            @if ($errors->has('password'))
+                                                <span class="help-block">
+                                                    <strong>{{ $errors->first('password') }}</strong>
+                                                </span>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <label>Confirm new password</label>
                                         <div class="form-group">
-                                            <label>Confirm new password</label>
-                                            {{ Form::text("confirm_new_password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'Confirm new password']) }}
+                                            {{ Form::password("confirm_new_password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'Confirm new password']) }}
                                         </div>
                                     </div>
                                 </div>
+
                                 <div class="text-center">
                                     {{Form::submit('RECOVER', ['class' => 'btn btn-info btn-fill btn-wd'])}}
                                 </div>
                                 {!! Form::close() !!}
-                                <div class="clearfix"></div>
+                                @if (session('status'))
+                                    <h4 class="title">{{ session('status') }}</h4>
+                                @endif
                             </div>
                         </div>
                     </div>
