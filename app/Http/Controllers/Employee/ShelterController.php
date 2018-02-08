@@ -14,7 +14,7 @@ class ShelterController extends Controller
         $shelters = Shelter::all();
         $shelter = $shelters->where('user_id', Auth::id())->first();
         if (is_null($shelter)){
-            return redirect('index');
+            return redirect()->back();
         }if($shelter->approve == 0){
             return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
         }else{
@@ -35,7 +35,7 @@ class ShelterController extends Controller
     public function create(Request $request)
     {
         Shelter::add($request->all(), Auth::id());
-        return redirect('add_new_shelter')->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
+        return redirect()->back()->with('status', 'Thank you for your appeal. In the near future, the admin has to process it!');
     }
 
     /**
@@ -48,27 +48,5 @@ class ShelterController extends Controller
     {
         //
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function change_password() //Request $request, $id
-    {
-        return view('employee.change_password');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }

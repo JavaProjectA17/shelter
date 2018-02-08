@@ -57,7 +57,9 @@ Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as'
 ///////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/employee', ['middleware' => 'auth', 'uses' => 'Employee\ShelterController@index'])->name('employee.index');
-Route::get('/employee/change_password', ['middleware' => 'auth', 'uses' => 'Employee\ShelterController@change_password'])->name('employee.change_password');
+Route::get('/employee/change_password', ['middleware' => 'auth', 'uses' => 'Employee\ChangePasswordController@index'])->name('employee.change_password');
+Route::get('/employee/change_password/edit', ['middleware' => 'auth', 'uses' => 'Employee\ChangePasswordController@edit'])->name('employee.change_password.edit');
+
 Route::group(['middleware' => 'auth','as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
 
     Route::resource('animals', 'AnimalsController');

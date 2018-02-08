@@ -39,38 +39,39 @@
                 <div class="col-lg-8 col-md-7">
                     <div class="card">
                         <div class="header">
-                            <h4 class="title">Edit Profile</h4>
+                            <h4 class="title">Change password</h4>
                             <div class="content">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Current password</label>
-                                                <input type="text" class="form-control border-input" placeholder="Current password" name="phone">
-                                            </div>
+
+                                {!! Form::open([ route('employee.change_password.edit'), 'id'=>'form', 'method'=>'POST']) !!}
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Current password</label>
+                                            {{ Form::text("password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'Current password']) }}
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>New password</label>
-                                                <input type="text" class="form-control border-input" placeholder="New password" name="phone">
-                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>New password</label>
+                                            {{ Form::text("new_password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'New password']) }}
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Confirm new password</label>
-                                                <input type="text" class="form-control border-input" placeholder="Confirm new password" name="phone">
-                                            </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Confirm new password</label>
+                                            {{ Form::text("confirm_new_password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'Confirm new password']) }}
                                         </div>
                                     </div>
-                                    <div class="text-center">
-                                        <button type="submit" class="btn btn-info btn-fill btn-wd">RECOVER</button>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </form>
+                                </div>
+                                <div class="text-center">
+                                    {{Form::submit('RECOVER', ['class' => 'btn btn-info btn-fill btn-wd'])}}
+                                </div>
+                                {!! Form::close() !!}
+                                <div class="clearfix"></div>
                             </div>
                         </div>
                     </div>
