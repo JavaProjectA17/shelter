@@ -55,7 +55,7 @@
                                     <div class="col-md-12">
                                         <label>New password</label>
                                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                                            {{ Form::password("password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'New password']) }}
+                                            {{ Form::password("new_password", $value = null, ['class'=>'form-control border-input', 'placeholder' => 'New password']) }}
                                             @if ($errors->has('password'))
                                                 <span class="help-block">
                                                     <strong>{{ $errors->first('password') }}</strong>

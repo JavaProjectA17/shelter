@@ -19,10 +19,9 @@ class ChangePasswordController extends Controller
     public function edit(Request $request){
 
         if (Auth::attempt(array('id' => Auth::id(), 'password' => $request->old_password))) {
-          //  $this->validator($request->all())->validate();
-            if ($request->password == $request->confirm_new_password ){
+            if ($request->new_password == $request->confirm_new_password ){
                 $user = Auth::user();
-                $user->password = bcrypt($request->password);
+                $user->password = bcrypt($request->new_password);
                 $user->save();
                 return redirect()->back()->with('status', 'Password has been successfully changed!');
             }
@@ -32,19 +31,5 @@ class ChangePasswordController extends Controller
         }
 
     }
-    protected function validator(array $data)
-    {
-        return Validator::make($data, [
-            'old_password' => 'required|string|min:6',
-            'password' => 'required|string|min:6|confirmed',
-            'confirm_new_password' => 'required|string|min:6|',
-        ]);
-    }
 
-    protected function create($password)
-    {
-        return User::create([
-            'password' => bcrypt($password),
-        ]);
-    }
 }
