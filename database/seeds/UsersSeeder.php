@@ -26,7 +26,7 @@ class UsersSeeder extends Seeder
             'role' => 'user'
         ]);
 
-        factory(App\User::class, 10)->create([
+        factory(App\User::class, 40)->create([
             'role' => 'user',
         ]);
 

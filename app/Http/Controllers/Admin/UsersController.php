@@ -15,7 +15,25 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(5);
+        $users = new User();
+        $queries = null;
+
+        if (request()->has('sortByName')) {
+            $users = $users->orderBy('name', request('sortByName'));
+            $queries = request('sortByName');
+        } else if (request()->has('sortByEmail')) {
+            $users = $users->orderBy('email', request('sortByEmail'));
+            $queries = request('sortByEmail');
+        } else if (request()->has('sortByBanned')) {
+            $users = $users->orderBy('banned', request('sortByBanned'));
+            $queries = request('sortByBanned');
+        } else if (request()->has('sortByRole')) {
+            $users = $users->orderBy('role', request('sortByRole'));
+            $queries = request('sortByRole');
+        }
+
+        $users = $users->paginate(10)->appends($queries);
+
         return view('admin.users.index', compact('users'));
     }
 
@@ -88,7 +106,21 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $users = User::findOrFail($id);
-        $users->delete();
-        return redirect()->route('admin.users.index')->with(['message' => 'User deleted successfully']);    }
+        $user = User::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('admin.users.index')->with(['message' => 'User "'. $user->name . '" deleted successfully']);
+    }
+
+    public function bane(Request $request, $id) {
+        $user = User::findOrFail($id);
+        $user->banned = !$user->banned;
+        $user->save();
+        $user->update($request->all());
+
+        if ($user->banned)
+            return redirect()->route('admin.users.index')->with(['message' => 'User "' . $user->name . '" baned successfully']);
+        else
+            return redirect()->route('admin.users.index')->with(['message' => 'User "' . $user->name . '" unban successfully']);
+    }
 }

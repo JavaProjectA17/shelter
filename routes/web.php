@@ -42,16 +42,17 @@ Route::resource('employee/edit','Employee\EditFormController',['only' =>['index'
 Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::post('/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
+    Route::post('/{id}/baned', ['uses' => 'Admin\UsersController@bane', 'as' => 'admin.']);
     Route::get('/home', 'HomeController@admin');
-    Route::get('/shelters/approved', ['uses' => 'Admin\SheltersController@approved', 'as' => 'shelters.approved']);
-    Route::get('/shelters/waiting_to_approve', ['uses' => 'Admin\SheltersController@waiting_to_approve', 'as' => 'shelters.waiting_to_approve']);
+//    Route::get('/shelters/approved', ['uses' => 'Admin\SheltersController@approved', 'as' => 'shelters.approved']);
+//    Route::get('/shelters/waiting_to_approve', ['uses' => 'Admin\SheltersController@waiting_to_approve', 'as' => 'shelters.waiting_to_approve']);
 
     Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
     Route::resource('/animals', 'Admin\AnimalsController');
     Route::resource('/shelters', 'Admin\SheltersController');
     Route::resource('/novelties', 'Admin\NoveltiesController');
     Route::resource('/users', 'Admin\UsersController');
-});//->middleware('auth', 'admin:admin');
+});
 ///////////////////////////////////////////////////////////////////////////////////////
 //   end admin routes
 ///////////////////////////////////////////////////////////////////////////////////////

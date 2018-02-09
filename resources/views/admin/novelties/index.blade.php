@@ -3,10 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-2">
+            <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">News</div>
-
+                    <div class="panel-heading">
+                        <h3>News Table</h3>
+                    </div>
                     <div class="panel-body">
                         @if (session('message'))
                             <div class="alert alert-info">{{ session('message') }}</div>
