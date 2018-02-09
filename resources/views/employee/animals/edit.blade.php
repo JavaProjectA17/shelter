@@ -45,19 +45,8 @@
                             Birthday:
                             <br />
                             <input type="text" name="birth_date" value="{{ $animal->birth_date }}" />
-                            <br /><br />
-                            Shelter
-                            <select name="shelter_id" class="form-control" style="width: 17%">
-                                @foreach($shelters as $shelter)
-                                    <option value="{{$shelter->id}}"
-                                            @if ($animal->shelterName() == $shelter->nameshelter)
-                                                selected="selected"
-                                            @endif
-                                    >
-                                        {{$shelter->nameshelter}}
-                                    </option>
-                                @endforeach
-                            </select>
+                            <br>
+                            <br>
                             <input type="submit" value="Submit" class="btn btn-default" />
                         </form>
                     </div>

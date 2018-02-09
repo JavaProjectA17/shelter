@@ -134,4 +134,10 @@
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="/assets/js/demo.js"></script>
 
+<!--Mask plugin-->
+<script src="/js/jquery.mask.min.js"></script>
+
+
+<script src="/js/validationAnimal.js"></script>
+
 </html>

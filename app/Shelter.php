@@ -27,5 +27,10 @@ class Shelter extends Model
         $user = $this->user;
         Mail::to($user->email)->send(new MailClass($user->name, $shelter->nameshelter));
     }
+    public function animals()
+    {
+        return $this->hasMany('App\Animal');
+    }
+
 
 }
