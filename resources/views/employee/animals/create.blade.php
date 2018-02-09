@@ -40,11 +40,11 @@
                             <input type="text" name="birth_date" value="{{ old('birth_date') }}" />
                             <br /><br />
                             Shelter
-                            <select name="shelter_id" class="form-control" style="width: 17%">
-                                @foreach($shelters as $shelter)
-                                    <option value="{{$shelter->id}}">{{$shelter->nameshelter}}</option>
-                                @endforeach
+                            <select name="shelter_id" class="form-control" style="width: 17%" disabled>
+                                <option value="{{$shelter->id}}">{{$shelter->nameshelter}}</option>
                             </select>
+                            <br>
+                            <br>
                             <input type="submit" value="Submit" class="btn btn-default" />
                         </form>
                     </div>

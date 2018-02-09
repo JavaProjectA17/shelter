@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\File;
 class Animal extends Model
 {
     protected $fillable = ['name', 'about','category_id','shelter_id','birth_date'];
-    public $pathToImage = 'uploads/images/animals/';
     const PATHTOIMAGE = 'uploads/images/animals/';
 
     public function uploadImage($image){
@@ -25,11 +24,9 @@ class Animal extends Model
         }
     }
 
-
-
     public function deleteImage(){
         if ($this->image != null) {
-            $fullPathToImage = $this->pathToImage.$this->id;
+            $fullPathToImage = self::PATHTOIMAGE.$this->id;
 
             if (File::isDirectory($fullPathToImage)){
                 if(File::exists($fullPathToImage.'/'.$this->image)){
@@ -46,8 +43,8 @@ class Animal extends Model
 
 
     public function getAvatar(){
-        $fullPathToImage = '/'.$this->pathToImage.$this->id.'/';
-        $fullPathTodefaultImage = '/'.$this->pathToImage.'default/defaultImage.jpeg';
+        $fullPathToImage = '/'.self::PATHTOIMAGE.$this->id.'/';
+        $fullPathTodefaultImage = '/'.self::PATHTOIMAGE.'default/defaultImage.jpeg';
 
         if ($this->image == null){
             return $fullPathTodefaultImage;
