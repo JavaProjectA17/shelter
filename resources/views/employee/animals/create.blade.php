@@ -40,7 +40,7 @@
                             <input type="text" name="birth_date" value="{{ old('birth_date') }}" />
                             <br /><br />
                             Shelter
-                            <select name="shelter_id" class="form-control" style="width: 17%" disabled>
+                            <select name="shelter_id" class="form-control" style="width: 17%" >
                                 <option value="{{$shelter->id}}">{{$shelter->nameshelter}}</option>
                             </select>
                             <br>

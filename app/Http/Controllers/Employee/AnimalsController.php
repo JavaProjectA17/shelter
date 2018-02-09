@@ -29,7 +29,7 @@ class AnimalsController extends Controller
             return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
         }
         else {
-            $animals = Animal::paginate();
+            $animals = Animal::where('shelter_id',$shelter->id)->paginate();
             return view('employee.animals.index', compact('animals'));
         }
 
