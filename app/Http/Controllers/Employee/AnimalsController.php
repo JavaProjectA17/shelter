@@ -21,7 +21,7 @@ class AnimalsController extends Controller
     {
         $shelters = Shelter::all();
         $shelter = $shelters->where('user_id', Auth::id())->first();
-        dd($shelter->animals());
+//        dd($shelter->animals());
         if (is_null($shelter)){
             return redirect()->back();
         }
