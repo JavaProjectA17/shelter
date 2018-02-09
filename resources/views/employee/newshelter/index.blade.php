@@ -1,19 +1,16 @@
 @extends('employee.home')
 @section('content')
-    {{--<pre>--}}
-{{--{{print_r(Session::all())}}--}}
-{{--</pre>--}}
     <div class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-4 col-md-5">
                     <div class="card card-user">
                         <div class="image">
-                            <img src="assets/img/background.jpg" alt="..."/>
+                            <img src="../assets/img/background.jpg" alt="..."/>
                         </div>
                         <div class="content">
                             <div class="author">
-                                <img class="avatar border-white" src="assets/img/faces/face-2.jpg" alt="..."/>
+                                <img class="avatar border-white" src="../assets/img/faces/face-2.jpg" alt="..."/>
                                 <h4 class="title">Lviv's shelter 4<br />
                                     <a href="#"><small>@chetfaker</small></a>
                                 </h4>
@@ -47,13 +44,10 @@
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <div class="avatar">
-                                                <img src="assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                <img src="../assets/img/faces/face-0.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                             </div>
-                                        </div>
-                                        <div class="col-xs-6">
-                                            DJ Khaled
+
                                             <br />
-                                            <span class="text-muted"><small>Offline</small></span>
                                         </div>
 
                                         <div class="col-xs-3 text-right">
@@ -65,7 +59,7 @@
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <div class="avatar">
-                                                <img src="/assets/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                <img src="../assets/img/faces/face-1.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                             </div>
                                         </div>
                                         <div class="col-xs-6">
@@ -83,7 +77,7 @@
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <div class="avatar">
-                                                <img src="assets/img/faces/face-3.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+                                                <img src="../assets/img/faces/face-3.jpg" alt="Circle Image" class="img-circle img-no-padding img-responsive">
                                             </div>
                                         </div>
                                         <div class="col-xs-6">
@@ -107,7 +101,7 @@
                             <h4 class="title">Edit Profile</h4>
                         </div>
                         <div class="content">
-                            <form method="post" action={{route('edit')}}>
+                            <form method="post" action={{route('edit.index')}}>
                                 {{ csrf_field() }}
                                 <div class="row">
                                     <div class="col-md-5">
@@ -129,7 +123,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Shelter`s Name</label>
-                                            <input type="text" class="form-control border-input" placeholder="Shelter`s name" name="name" value={{old('nameshelter')}}>
+                                            <input type="text" class="form-control border-input" placeholder="Shelter`s name" name="nameshelter" value={{old('nameshelter')}}>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -171,7 +165,6 @@
                                         <div class="form-group">
                                             <label>Description</label>
                                             <textarea rows="5" class="form-control border-input" placeholder="Here can be your description" name="description">{{old('description')}}</textarea>
-   </textarea>
                                         </div>
                                     </div>
                                 </div>

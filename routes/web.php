@@ -26,10 +26,8 @@ Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.art
 
 Route::get('/employee', 'Employee\EditController@index');
 
+Route::resource('employee/edit','Employee\EditFormController');
 
-Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','show']]);
-
-//Route::match(['get','post'],'/employee/edit',['uses'=>'Employee\EditFormController','as'=>'edit']);
 
 Auth::routes();
 
@@ -38,7 +36,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 //*
 //*   admin routes
 //*
-Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
+//Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store','show']]);
+
+
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
