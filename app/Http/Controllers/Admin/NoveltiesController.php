@@ -79,8 +79,12 @@ class NoveltiesController extends Controller
     {
         //
         $novelty = Novelty::findOrFail($id);
+        $image = $request->file('image');
+        $novelty->deleteImage();
+        $novelty->uploadImage($image);
         $novelty->update($request->all());
-        return redirect()->route('admin.novelties.index')->with(['message' => 'News updated successfully!']);
+        // return redirect()->route('admin.novelties.index')->with(['message' => 'News updated successfully!']);
+            return redirect()->back();
     }
 
     /**

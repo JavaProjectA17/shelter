@@ -16,7 +16,7 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ route('admin.novelties.update', $novelty->id) }}" method="post">
+                        <form action="{{ route('admin.novelties.update', $novelty->id) }}"  method="post" enctype="multipart/form-data">
                             <input type="hidden" name="_method" value="PUT">
                             {{ csrf_field() }}
                             Title:

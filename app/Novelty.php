@@ -27,7 +27,7 @@ class Novelty extends Model
     }
     public function deleteImage(){
         if ($this->image != null) {
-            $fullPathToImage = $this->pathToImage.$this->id;
+            $fullPathToImage = self::PATHTOIMAGE.$this->id;
             if (File::isDirectory($fullPathToImage)){
                 if(File::exists($fullPathToImage.'/'.$this->image)){
                     File::delete($fullPathToImage.'/'.$this->image);
