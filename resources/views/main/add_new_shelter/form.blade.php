@@ -3,18 +3,18 @@
 @endif
 <div class="content_page1">
     <div class="content page1">
-        <h2 class="ic1">Форма додавання нового притулку</h2>
+        <h2 class="ic1">Р¤РѕСЂРјР° РґРѕРґР°РІР°РЅРЅСЏ РЅРѕРІРѕРіРѕ РїСЂРёС‚СѓР»РєСѓ</h2>
         <div class="grid_5prefix_1">
             {!! Form::open([ route('add_new_shelter.create'), 'id'=>'form', 'method'=>'POST']) !!}
             <div class="form-inputs">
-                {{ Form::text("nameshelter", $value = null, ['placeholder' => 'Введіть назву притулку']) }}<br><br>
-                 {{ Form::text('address', $value = null, ['placeholder' => 'Введіть адресу притулку']) }}<br><br>
-                 {{ Form::text('phone', $value = null, ['placeholder' => 'Введіть номер телефону']) }}<br><br>
+                {{ Form::text("nameshelter", $value = null, ['placeholder' => 'Р’РІРµРґС–С‚СЊ РЅР°Р·РІСѓ РїСЂРёС‚СѓР»РєСѓ']) }}<br><br>
+                 {{ Form::text('address', $value = null, ['placeholder' => 'Р’РІРµРґС–С‚СЊ Р°РґСЂРµСЃСѓ РїСЂРёС‚СѓР»РєСѓ']) }}<br><br>
+                 {{ Form::text('phone', $value = null, ['placeholder' => 'Р’РІРµРґС–С‚СЊ РЅРѕРјРµСЂ С‚РµР»РµС„РѕРЅСѓ']) }}<br><br>
             </div>
             <div class="desc">
-                {{ Form::textarea('description', $value = null, ['placeholder' => 'Введіть опис']) }}<br><br>
+                {{ Form::textarea('description', $value = null, ['placeholder' => 'Р’РІРµРґС–С‚СЊ РѕРїРёСЃ']) }}<br><br>
             </div>
-            {{Form::submit('Відправити', ['class' => 'btn'])}}
+            {{Form::submit('Р’С–РґРїСЂР°РІРёС‚Рё', ['class' => 'btn'])}}
 
             {!! Form::close() !!}
             </div>
