@@ -1,4 +1,4 @@
-<?php
+jsdfnsne++<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -12,10 +12,15 @@
 */
 
 /*main*/
+
+
+
 Route::get('/', ['as' => 'index', 'uses' => 'User\MainController@index']);
 Route::get('/about', ['as' => 'about', 'uses' => 'User\MainController@about']);
 Route::get('/new', ['as' => 'new', 'uses' => 'User\MainController@new']);
 Route::get('/contacts', ['as' => 'contacts', 'uses' => 'User\MainController@contacts']);
+
+Route::get('/animal/{id}/', ['as' => 'showAnimal', 'uses' => 'User\MainController@showAnimal']);
 Route::get('/add_new_shelter', ['as' => 'add_new_shelter', 'middleware' => 'auth', 'uses' => 'User\MainController@add_new_shelter']);
 Route::post('/add_new_shelter', ['as' => 'add_new_shelter.create', 'middleware' => 'auth', 'uses' => 'Employee\ShelterController@create']);
 
@@ -62,3 +67,4 @@ Route::get('/employee', ['middleware' => 'auth', 'uses' => 'Employee\ShelterCont
 Route::group(['middleware' => 'auth','as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
     Route::resource('animals', 'AnimalsController');
 });
+?>
