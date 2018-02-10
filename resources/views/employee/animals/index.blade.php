@@ -1,6 +1,7 @@
 @extends('employee.home')
 
 @section('content')
+    <link href="/css/employee_animals.css" rel="stylesheet" />
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset">
@@ -20,7 +21,6 @@
                                 <th>About</th>
                                 <th>Birthday</th>
                                 <th>Category</th>
-                                <th>Shelter</th>
                                 <th>Actions</th>
                             </tr>
                             </thead>
@@ -28,11 +28,10 @@
                             @forelse($animals as $animal)
                                 <tr>
                                     <td>{{ $animal->name }}</td>
-                                    <td>{{ $animal->image }}</td>
+                                    <td><image class="AnimalImage" src="{{$animal->getAvatar()}} "/></td>
                                     <td>{{ $animal->about }}</td>
                                     <td>{{ $animal->birth_date }}</td>
                                     <td>{{ $animal->categoryName() }}</td>
-                                    <td>{{ $animal->shelterName() }}</td>
                                     <td>
                                         <a href="{{ route('employee.animals.edit', $animal->id) }}" class="btn btn-default">Edit</a>
                                         <form action="{{ route('employee.animals.destroy', $animal->id) }}" method="POST"

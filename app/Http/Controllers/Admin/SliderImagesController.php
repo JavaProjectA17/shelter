@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use App\Animal;
-use App\Http\Requests\StoreAnimalRequest;
+use App\SliderImage;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
-class AnimalsController extends Controller
+class SliderImagesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,9 @@ class AnimalsController extends Controller
      */
     public function index()
     {
-        $animals = Animal::paginate(5);//all();
-        return view('animals.index', compact('animals'));
+
+        $images = SliderImage::all();
+        return view('admin.slider.index',['images'=>$images]);
     }
 
     /**
@@ -26,7 +28,7 @@ class AnimalsController extends Controller
      */
     public function create()
     {
-        return view('animals.create');
+        return view('admin.slider.create');
     }
 
     /**
@@ -35,10 +37,13 @@ class AnimalsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreAnimalRequest $request)
+    public function store(Request $request)
     {
-        Animal::create($request->all());
-        return redirect()->route('animals.index')->with(['message' => 'Pet added successfully']);
+        $image = new SliderImage($request->all());
+     //   dd($request->file('imageSlider'));
+        $image->uploadImage($request->file('imageSlider'));
+
+       return redirect()->route('admin.slider.index');
     }
 
     /**
@@ -60,8 +65,8 @@ class AnimalsController extends Controller
      */
     public function edit($id)
     {
-        $animal = Animal::findOrFail($id);
-        return view('animals.edit', compact('animal'));
+        $images = SliderImage::find($id);
+        return view('admin.slider.edit', ['images'=>$images]);
     }
 
     /**
@@ -71,11 +76,13 @@ class AnimalsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreAnimalRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $animal = Animal::findOrFail($id);
-        $animal->update($request->all());
-        return redirect()->route('animals.index')->with(['message' => 'Pet updated successfully']);
+
+        $images = SliderImage::findOrFail($id);
+        $images->edit($request->all());
+        $images->uploadImage($request->file('imageSlider'));
+        return redirect()->route('admin.slider.index');
     }
 
     /**
@@ -86,8 +93,7 @@ class AnimalsController extends Controller
      */
     public function destroy($id)
     {
-        $animal = Animal::findOrFail($id);
-        $animal->delete();
-        return redirect()->route('animals.index')->with(['message' => 'Pet deleted successfully']);
+        SliderImage::find($id)->remove();
+        return redirect()->route('admin.slider.index');
     }
 }

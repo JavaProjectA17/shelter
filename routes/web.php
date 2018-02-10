@@ -24,11 +24,20 @@ Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index')
 
 Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
 
-Route::get('/employee', 'Employee\EditController@index');
-
 Route::resource('/employee/edit','Employee\EditFormController',['only' =>['index','show']]);
 
-//Route::match(['get','post'],'/employee/edit',['uses'=>'Employee\EditFormController','as'=>'edit']);
+
+//*
+//*   admin routes
+//*
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function (){
+    Route::resource('/slider','Admin\SliderImagesController');
+}); //This route group is responsible for slider CRUD
+
+
+
+
 
 Auth::routes();
 
@@ -44,21 +53,26 @@ Route::resource('employee/edit','Employee\EditFormController',['only' =>['index'
 Route::group(['middleware' => ['auth', 'admin:admin'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::post('/{id}/active', ['uses' => 'Admin\SheltersController@toggleActive', 'as' => 'admin.']);
+    Route::post('/{id}/baned', ['uses' => 'Admin\UsersController@bane', 'as' => 'admin.']);
     Route::get('/home', 'HomeController@admin');
-    Route::get('/shelters/approved', ['uses' => 'Admin\SheltersController@approved', 'as' => 'shelters.approved']);
-    Route::get('/shelters/waiting_to_approve', ['uses' => 'Admin\SheltersController@waiting_to_approve', 'as' => 'shelters.waiting_to_approve']);
+//    Route::get('/shelters/approved', ['uses' => 'Admin\SheltersController@approved', 'as' => 'shelters.approved']);
+//    Route::get('/shelters/waiting_to_approve', ['uses' => 'Admin\SheltersController@waiting_to_approve', 'as' => 'shelters.waiting_to_approve']);
 
     Route::resource('/animalcategorys', 'Admin\AnimalCategoriesController');
     Route::resource('/animals', 'Admin\AnimalsController');
     Route::resource('/shelters', 'Admin\SheltersController');
     Route::resource('/novelties', 'Admin\NoveltiesController');
     Route::resource('/users', 'Admin\UsersController');
-});//->middleware('auth', 'admin:admin');
+});
 ///////////////////////////////////////////////////////////////////////////////////////
 //   end admin routes
 ///////////////////////////////////////////////////////////////////////////////////////
 
 Route::get('/employee', ['middleware' => 'auth', 'uses' => 'Employee\ShelterController@index'])->name('employee.index');
-Route::group(['as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
+Route::get('/employee/change_password', ['middleware' => 'auth', 'uses' => 'Employee\ChangePasswordController@index'])->name('employee.change_password');
+Route::post('/employee/change_password', ['middleware' => 'auth', 'uses' => 'Employee\ChangePasswordController@edit'])->name('employee.change_password.edit');
+
+Route::group(['middleware' => 'auth','as' => 'employee.', 'prefix' => 'employee', 'namespace' => 'Employee'], function () {
+
     Route::resource('animals', 'AnimalsController');
 });

@@ -5,7 +5,7 @@
         <div class="row">
             <div class="col-md-9 col-md-offset-2">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Add New Kind</div>
+                    <div class="panel-heading">Add New Category</div>
 
                     <div class="panel-body">
                         @if ($errors->count() > 0)
@@ -17,7 +17,7 @@
                         @endif
                         <form action="{{ route('admin.animalcategorys.store') }}" method="post">
                             {{ csrf_field() }}
-                            New Kind:
+                            New Category:
                             <br />
                             <input type="text" name="title" value="{{ old('title') }}" />
                             <br /><br />

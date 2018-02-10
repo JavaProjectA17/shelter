@@ -6,8 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Animal;
 use App\Http\Requests\StoreAnimalRequest;
 use App\AnimalCategory;
-use Illuminate\Http\Request;
 use App\Shelter;
+use Illuminate\Support\Facades\Auth;
+
 
 class AnimalsController extends Controller
 {
@@ -18,8 +19,20 @@ class AnimalsController extends Controller
      */
     public function index()
     {
-        $animals = Animal::paginate(5);//all()
-        return view('employee.animals.index', compact('animals'));
+        $shelters = Shelter::all();
+        $shelter = $shelters->where('user_id', Auth::id())->first();
+//        dd($shelter->animals());
+        if (is_null($shelter)){
+            return redirect()->back();
+        }
+        if($shelter->approve == 0){
+            return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
+        }
+        else {
+            $animals = Animal::where('shelter_id',$shelter->id)->paginate();
+            return view('employee.animals.index', compact('animals'));
+        }
+
     }
 
     /**
@@ -29,9 +42,19 @@ class AnimalsController extends Controller
      */
     public function create()
     {
-        $categories = AnimalCategory::all();
         $shelters = Shelter::all();
-        return view('employee.animals.create',compact('categories','shelters'));
+        $shelter = $shelters->where('user_id', Auth::id())->first();
+
+        if (is_null($shelter)){
+            return redirect()->back();
+        }
+        if($shelter->approve == 0){
+            return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
+        }
+        else {
+            $categories = AnimalCategory::all();
+            return view('employee.animals.create',compact('categories','shelter'));
+        }
     }
 
     /**
@@ -42,8 +65,20 @@ class AnimalsController extends Controller
      */
     public function store(StoreAnimalRequest $request)
     {
-        Animal::create($request->all());
-        return redirect()->route('employee.animals.index')->with(['message' => 'Pet added successfully']);
+        $shelters = Shelter::all();
+        $shelter = $shelters->where('user_id', Auth::id())->first();
+
+        if (is_null($shelter)){
+            return redirect()->back();
+        }
+        if($shelter->approve == 0){
+            return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
+        }
+        else {
+            $animal = Animal::create($request->all());
+            $animal->uploadImage($request->file('image'));
+            return redirect()->route('employee.animals.index')->with(['message' => 'Pet added successfully']);
+        }
     }
 
     /**
@@ -65,10 +100,20 @@ class AnimalsController extends Controller
      */
     public function edit($id)
     {
-        $animal = Animal::findOrFail($id);
-        $categories = AnimalCategory::all();
         $shelters = Shelter::all();
-        return view('employee.animals.edit', compact('animal','categories','shelters'));
+        $shelter = $shelters->where('user_id', Auth::id())->first();
+
+        if (is_null($shelter)){
+            return redirect()->back();
+        }
+        if($shelter->approve == 0){
+            return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
+        }
+        else {
+            $animal = Animal::findOrFail($id);
+            $categories = AnimalCategory::all();
+            return view('employee.animals.edit', compact('animal','categories','shelter'));
+        }
     }
 
     /**
@@ -80,9 +125,25 @@ class AnimalsController extends Controller
      */
     public function update(StoreAnimalRequest $request, $id)
     {
-        $animal = Animal::findOrFail($id);
-        $animal->update($request->all());
-        return redirect()->route('employee.animals.index')->with(['message' => 'Pet updated successfully']);
+        $shelters = Shelter::all();
+        $shelter = $shelters->where('user_id', Auth::id())->first();
+
+        if (is_null($shelter)){
+            return redirect()->back();
+        }
+        if($shelter->approve == 0){
+            return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
+        }
+        else {
+            $animal = Animal::findOrFail($id);
+            $image = $request->file('image');
+            if ($image != null)
+            $animal->deleteImage();
+            $animal->uploadImage($image);
+            $animal->update($request->all());
+
+            return redirect()->route('employee.animals.index')->with(['message' => 'Pet updated successfully']);
+        }
     }
 
     /**
@@ -93,8 +154,20 @@ class AnimalsController extends Controller
      */
     public function destroy($id)
     {
-        $animal = Animal::findOrFail($id);
-        $animal->delete();
-        return redirect()->route('employee.animals.index')->with(['message' => 'Pet deleted successfully']);
+        $shelters = Shelter::all();
+        $shelter = $shelters->where('user_id', Auth::id())->first();
+
+        if (is_null($shelter)){
+            return redirect()->back();
+        }
+        if($shelter->approve == 0){
+            return redirect('add_new_shelter')->with('status', 'Your application is being processed. Manager will contact you as soon as possible!');
+        }
+        else {
+            $animal = Animal::findOrFail($id);
+            $animal->deleteImage();
+            $animal->delete();
+            return redirect()->route('employee.animals.index')->with(['message' => 'Pet deleted successfully']);
+        }
     }
 }
