@@ -1,0 +1,31 @@
+.wrapper{
+
+  height: 750px;
+  width: 100%;
+}
+.imgStyle{
+  border-radius: 15px;
+}
+.imgAndName{
+  float: left;
+  width: 50%;
+  height: inherit;
+  background-color: #F0F0F0;
+}
+.about{
+  float: right;
+  background-color:#F0F0F0;
+  width: 50%;
+  height: inherit;
+}
+
+.miniWrap{
+  margin: 0 5px;
+  text-align: justify;
+  overflow : scroll;
+  height: 500px;
+}
+
+.miniWrapper{
+  color:#39006F;
+}

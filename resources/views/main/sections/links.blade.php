@@ -1,13 +1,13 @@
 <link rel="shortcut icon" href="user/images/favicon.ico">
-
-<link rel="stylesheet" href="user/css/slider.css">
-<script src="user/js/jquery-migrate-1.1.1.js"></script>
-<script src="user/js/superfish.js"></script>
-<script src="user/js/jquery.carouFredSel-6.1.0-packed.js"></script>
-<script src="user/js/jquery.equalheights.js"></script>
-<script src="user/js/jquery.easing.1.3.js"></script>
-<script src="user/js/tms-0.4.1.js"></script>
-<script src="user/js/jquery.ui.totop.js"></script>
+<link rel="stylesheet" href="/user/css/style.css">
+<link rel="stylesheet" href="/user/css/slider.css">
+<script src="/user/js/jquery-migrate-1.1.1.js"></script>
+<script src="/user/js/superfish.js"></script>
+<script src="/user/js/jquery.carouFredSel-6.1.0-packed.js"></script>
+<script src="/user/js/jquery.equalheights.js"></script>
+<script src="/user/js/jquery.easing.1.3.js"></script>
+<script src="/user/js/tms-0.4.1.js"></script>
+<script src="/user/js/jquery.ui.totop.js"></script>
 <script>
 $(window).load(function () {
     $('.slider')._TMS({
