@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers\User;
-
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Animal;
 use App\Shelter;
+use App\Novelty;
 
 class MainController extends Controller
 {
@@ -13,8 +13,8 @@ class MainController extends Controller
    public function index()
     {
 
-        $animals = Animal::inRandomOrder()->get(['name', 'about', 'image'])->take(2);
-        $shelters = Shelter::where('approve', '>', '0')->inRandomOrder()->get(['nameshelter','description','address'])->take(2);
+        $animals = Animal::inRandomOrder()->get(['name', 'about', 'image'])->take(4);
+        $shelters = Shelter::where('approve', '>', '0')->inRandomOrder()->get(['nameshelter','description','address'])->take(4);
 
         return view('main.index', [
             'animals'=>$animals,
@@ -29,7 +29,10 @@ class MainController extends Controller
 
     public function new()
     {
-        return view('main.new');
+
+        $news = Novelty::get(['id','title','short_description','image']);
+        //dd($new);
+        return view('main.new', ['news'=>$news]);
     }
 
     public function contacts()

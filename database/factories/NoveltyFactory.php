@@ -16,7 +16,7 @@ use Faker\Generator as Faker;
 $factory->define(App\Novelty::class, function (Faker $faker) {
     return [
         'title'=>$faker->text(10),
-        'image'=>'/admin/images/default_img.jpg',
+        'image'=>null,
         'short_description'=>$faker->text(25),
         'description'=>$faker->text(150),
         'start'=>'2018-02-07'
