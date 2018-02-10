@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Animal;
+use App\News;
 use App\Shelter;
 use App\Http\Controllers\User\UsersFunction; // own functions for getting items from DB to views
 
@@ -38,6 +39,16 @@ class MainController extends Controller
     public function new()
     {
         return view('main.new');
+    }
+
+ public function showNew($id)
+    {
+        $news = News::where("id", "=", $id)->get(["title", "about", "image"]);
+         //dd($news);        
+        return view('main.showNew', [
+            "news" => $news 
+        ]);
+
     }
 
 

@@ -3,7 +3,7 @@
         <div class="grid_12">
             <h1>
                 <a href="{{route('index')}}">
-                    <img src="user/images/logo.png" alt="">
+                    <img src="/user/images/logo.png" alt="">
                 </a>
             </h1>
             <div class="menu_block">
