@@ -6,32 +6,20 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Animal;
 use App\Shelter;
-use App\Http\Controllers\User\UsersFunction; // own functions for getting items from DB to views
-
 
 class MainController extends Controller
 {
 
-
    public function index()
     {
 
-        $animals = Animal::get(['name', 'about', 'image'])->random(3);
+        $animals = Animal::inRandomOrder()->get(['name', 'about', 'image'])->take(2);
         $shelters = Shelter::where('approve', '>', '0')->inRandomOrder()->get(['nameshelter','description','address'])->take(2);
 
-       // ->where('approve', '>', '0');
-
-
-
-        dd($animals);
-        $animalsForView =UsersFunction::GetFromArrey(5,$animals);
-        $sheltersForView = UsersFunction::GetFromArrey(3,$shelters);
-
         return view('main.index', [
-            'animals'=>$animalsForView,
-            'shelters'=>$sheltersForView
+            'animals'=>$animals,
+            'shelters'=>$shelters
         ]);
-
     }
 
     public function about()
@@ -39,12 +27,10 @@ class MainController extends Controller
         return view('main.about');
     }
 
-
     public function new()
     {
         return view('main.new');
     }
-
 
     public function contacts()
     {
@@ -55,5 +41,4 @@ class MainController extends Controller
     {
         return view('main.add_new_shelter');
     }
-
 }
