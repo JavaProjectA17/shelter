@@ -26,7 +26,18 @@ Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.art
 
 Route::resource('/employee/edit','Employee\EditFormController',['only' =>['index','show']]);
 
-//Route::match(['get','post'],'/employee/edit',['uses'=>'Employee\EditFormController','as'=>'edit']);
+
+//*
+//*   admin routes
+//*
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function (){
+    Route::resource('/slider','Admin\SliderImagesController');
+}); //This route group is responsible for slider CRUD
+
+
+
+
 
 Auth::routes();
 
