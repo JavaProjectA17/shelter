@@ -39,7 +39,8 @@ class NoveltiesController extends Controller
     public function store(Request $request)
     {
         //
-        Novelty::create($request->all());
+        $news = Novelty::create($request->all());
+        $news->uploadImage($request->file('image'));
         return redirect()->route('admin.novelties.index')->with(['message' => 'Category added successfully']);
     }
 
@@ -78,8 +79,12 @@ class NoveltiesController extends Controller
     {
         //
         $novelty = Novelty::findOrFail($id);
+        $image = $request->file('image');
+        $novelty->deleteImage();
+        $novelty->uploadImage($image);
         $novelty->update($request->all());
-        return redirect()->route('admin.novelties.index')->with(['message' => 'News updated successfully!']);
+        // return redirect()->route('admin.novelties.index')->with(['message' => 'News updated successfully!']);
+            return redirect()->back();
     }
 
     /**
