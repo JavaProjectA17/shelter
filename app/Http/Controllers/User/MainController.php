@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Animal;
+use App\News;
 use App\Shelter;
 use App\Novelty;
 use App\Http\Controllers\User\UsersFunction; // own functions for getting items from DB to views
@@ -42,6 +43,16 @@ class MainController extends Controller
         $news = Novelty::get(['id','title','short_description','image']);
         //dd($new);
         return view('main.new', ['news'=>$news]);
+    }
+
+ public function showNew($id)
+    {
+        $news = News::where("id", "=", $id)->get(["title", "about", "image"]);
+         //dd($news);        
+        return view('main.showNew', [
+            "news" => $news 
+        ]);
+
     }
 
 
