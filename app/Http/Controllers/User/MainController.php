@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Animal;
 use App\Shelter;
+use App\Novelty;
 use App\Http\Controllers\User\UsersFunction; // own functions for getting items from DB to views
 
 
@@ -37,7 +38,10 @@ class MainController extends Controller
 
     public function new()
     {
-        return view('main.new');
+
+        $news = Novelty::get(['id','title','short_description','image']);
+        //dd($new);
+        return view('main.new', ['news'=>$news]);
     }
 
 

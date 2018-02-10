@@ -14,15 +14,15 @@
                                 @endforeach
                             </ul>
                         @endif
-                        <form action="{{ route('admin.novelties.store') }}" method="post">
+                        <form action="{{ route('admin.novelties.store') }}" method="post" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             Title:
                             <br />
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}" />
                             <br /><br />
-                            Image:
+                            Image1:
                             <br />
-                            <input type="text" name="image" value="{{ old('image') }}" />
+                            <input type="file" name="image" />
                             <br /><br />
                             Short description:
                             <br />

@@ -120,7 +120,7 @@
 
 <!--   Core JS Files   -->
 
-=======
+
 <script src="/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -144,6 +144,13 @@
 
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="/assets/js/demo.js"></script>
+
+
+
+
+
+
+<script src="/js/validationAnimal.js"></script>
 
 
 </html>

@@ -20,7 +20,8 @@ class CreateAnimalsTable extends Migration
             $table->text('about')->nullable();//description
             $table->string('image')->nullable();//image
             $table->integer('category_id')->nullable();
-            $table->integer('shelter_id')->nullable();
+            $table->integer('shelter_id')->unsigned();
+//            $table->foreign('shelter_id')->references('id')->on('shelter')->onDelete('cascade');
             $table->date('birth_date')->nullable();
             $table->timestamps();
         });

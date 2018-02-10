@@ -45,15 +45,15 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link rel="stylesheet" href="/css/button_remove_style.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{route('home')}}" class="logo"> {{--This link redirects to home page--}}
-            <span class="logo-lg">MAIN PAGE</span>
-        </a>
+
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
             <div class="container">
@@ -69,7 +69,7 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
@@ -118,12 +118,17 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                {{--<li class="active treeview">--}}
-                    {{--<a href="#">--}}{{--<---------------------------------------------------------------------------------This link redirects to dashboard panel--}}
-                        {{--<i class="fa fa-dashboard"></i> <span>Dashboard</span>--}}
-                        {{--<span class="pull-right-container"></span>--}}
-                    {{--</a>--}}
-                {{--</li>--}}
+
+                <li>
+
+                    <a href="{{route('home')}}">
+                        <i class="fa fa-dashboard"></i> <span>Home</span>
+                        <span class="pull-right-container">
+
+            </span>
+                    </a>
+                </li>
+
                 <li >
                     <a href="{{route('admin.novelties.index')}}">
                         <i class="fa  fa-tags"></i>
@@ -158,6 +163,13 @@
                         <span class="pull-right-container"></span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{route('admin.slider.index')}}">
+                        <i class="fa fa-caret-square-o-right"></i>
+                        <span>Slider</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
@@ -165,7 +177,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
+        <br><br>
 
     @yield('content')
 
