@@ -29,16 +29,12 @@ Route::get('/admin', 'Admin\DashboardController@dashboard')->name('admin.index')
 
 Route::get('/admin/articles', 'Admin\ArticlesController@index')->name('admin.articles.index');
 
+
+
 Route::resource('/employee/edit','Employee\EditFormController',['only' =>['index','show']]);
 
 
-//*
-//*   admin routes
-//*
 
-Route::group(['middleware' => 'auth', 'prefix' => 'admin', 'as' => 'admin.'], function (){
-    Route::resource('/slider','Admin\SliderImagesController');
-}); //This route group is responsible for slider CRUD
 
 
 
@@ -48,7 +44,11 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
 Route::resource('employee/edit','Employee\EditFormController',['only' =>['index','store']]);
+
 
 //Route::resource('/admin/animalcategories', 'Admin\AnimalCategoriesController'); //make for example on lesson
 
