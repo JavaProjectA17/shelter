@@ -11,3 +11,6 @@ npm-debug.log
 yarn-error.log
 .env
 .env.example
+node_modules
+public/stylesheets/*.css
+bower_components

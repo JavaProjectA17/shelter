@@ -79,7 +79,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    PITOMNIK
+                    L A R A V E L
                 </div>
 
                 <div class="links">
