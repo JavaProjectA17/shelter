@@ -39,7 +39,8 @@ class NoveltiesController extends Controller
     public function store(Request $request)
     {
         //
-        Novelty::create($request->all());
+        $news = Novelty::create($request->all());
+        $news->uploadImage($request->file('image'));
         return redirect()->route('admin.novelties.index')->with(['message' => 'Category added successfully']);
     }
 

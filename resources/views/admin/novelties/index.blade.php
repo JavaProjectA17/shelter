@@ -31,7 +31,7 @@
                                 <tr>
                                     <td>{{ $novelty->title }}</td>
                                     <td>
-                                        <img class="img-circle img-responsive img-thumbnail" style="max-width: 70px;" src="{{ $novelty->image }}">
+                                        <img class="img-responsive img-thumbnail" style="max-width: 70px;" src="{{ $novelty->getImage() }}">
                                     </td>
                                     <td>{{ $novelty->short_description }}</td>
                                     <td>{{ $novelty->description }}</td>

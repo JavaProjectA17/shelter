@@ -24,8 +24,13 @@
                             <input type="text" class="form-control" name="title" value="{{ $novelty->title }}" />
                             <br /><br />
                             Image:
-                            <br />
-                            <input type="text" name="image" value="{{ $novelty->image }}" />
+                            <br /><br/>
+                            
+                                    <img class=" img-responsive img-thumbnail" style="max-width: 150px;" src="{{ $novelty->getImage() }}">
+                                <br/>
+                                <br/>
+                                    <input type="file" name="image" />
+                               
                             <br /><br />
                             Short description:
                             <br />
