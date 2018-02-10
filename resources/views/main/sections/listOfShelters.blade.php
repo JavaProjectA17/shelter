@@ -15,7 +15,8 @@
                         <a href="#">{{$shelter->nameshelter}}</a>
                      </p>
                      {{$shelter->description}}
-                     <strong>{{$shelter->address}}</strongS>
+                     <br>
+                     <strong>{{$shelter->address}}</strong>
                  </div>
             </div>
 
