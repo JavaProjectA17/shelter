@@ -9,6 +9,8 @@
     <title>Paper Dashboard by Creative Tim</title>
 
     <!-- Bootstrap core CSS     -->
+
+
     <link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
@@ -20,9 +22,12 @@
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="/assets/css/demo.css" rel="stylesheet" />
 
+
     <!--  Fonts and icons     -->
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+
+
     <link href="/assets/css/themify-icons.css" rel="stylesheet">
 
 </head>
@@ -33,6 +38,7 @@
                 <div class="logo active">
                     <a href="" class="simple-text">
                         Cabinet
+
                     </a>
                 </div>
 
@@ -113,6 +119,8 @@
 </body>
 
 <!--   Core JS Files   -->
+
+
 <script src="/assets/js/jquery-1.10.2.js" type="text/javascript"></script>
 <script src="/assets/js/bootstrap.min.js" type="text/javascript"></script>
 
@@ -125,19 +133,24 @@
 <!--  Notifications Plugin    -->
 <script src="/assets/js/bootstrap-notify.js"></script>
 
+
 <!--  Google Maps Plugin    -->
 <script type="/text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
 
 <!-- Paper Dashboard Core javascript and methods for Demo purpose -->
+
+
 <script src="/assets/js/paper-dashboard.js"></script>
 
 <!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 <script src="/assets/js/demo.js"></script>
 
-<!--Mask plugin-->
-<script src="/js/jquery.mask.min.js"></script>
+
+
+
 
 
 <script src="/js/validationAnimal.js"></script>
+
 
 </html>

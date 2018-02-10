@@ -44,4 +44,15 @@ class MainController extends Controller
     {
         return view('main.add_new_shelter');
     }
+
+    public function showAnimal($id)
+    {
+      //$animal = Animal::all();
+         $animal = Animal::where('id','=',$id)->get(['name','about','image']);
+         //dd($animal[0]->name);
+        return view('main.showAnimal',[
+          "animal" => $animal
+        ]);
+    }
+
 }
