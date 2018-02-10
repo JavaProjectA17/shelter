@@ -1,0 +1,63 @@
+[33m9d7d990[m[33m ([m[1;36mHEAD -> [m[1;32mIrynaV[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{0}: checkout: moving from IrynaV to IrynaV
+[33m9d7d990[m[33m ([m[1;36mHEAD -> [m[1;32mIrynaV[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{1}: reset: moving to HEAD
+[33m9d7d990[m[33m ([m[1;36mHEAD -> [m[1;32mIrynaV[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m HEAD@{2}: pull origin master: Fast-forward
+[33m7519831[m[33m ([m[1;31morigin/IrynaV[m[33m)[m HEAD@{3}: checkout: moving from master to IrynaV
+[33md44fadf[m[33m ([m[1;32mmaster[m[33m)[m HEAD@{4}: pull origin master: Fast-forward
+[33m4e3b29c[m HEAD@{5}: checkout: moving from test to master
+[33m758228b[m[33m ([m[1;31morigin/test[m[33m, [m[1;32mtest[m[33m)[m HEAD@{6}: merge master: Merge made by the 'recursive' strategy.
+[33m0151749[m HEAD@{7}: checkout: moving from master to test
+[33m4e3b29c[m HEAD@{8}: commit (merge): 'jjj'
+[33m8274b00[m HEAD@{9}: checkout: moving from test to master
+[33m0151749[m HEAD@{10}: commit: changed styles
+[33meaafe22[m HEAD@{11}: checkout: moving from master to test
+[33m8274b00[m HEAD@{12}: checkout: moving from test to master
+[33meaafe22[m HEAD@{13}: commit: changed styles
+[33m8274b00[m HEAD@{14}: reset: moving to HEAD
+[33m8274b00[m HEAD@{15}: checkout: moving from master to test
+[33m8274b00[m HEAD@{16}: checkout: moving from master to master
+[33m8274b00[m HEAD@{17}: commit: changed styles
+[33m54d9eb9[m HEAD@{18}: checkout: moving from master to master
+[33m54d9eb9[m HEAD@{19}: checkout: moving from master to master
+[33m54d9eb9[m HEAD@{20}: commit: changed styles
+[33m0d8f938[m HEAD@{21}: checkout: moving from IrynaV to master
+[33m7519831[m[33m ([m[1;31morigin/IrynaV[m[33m)[m HEAD@{22}: commit: ''
+[33m9b99b12[m HEAD@{23}: checkout: moving from IrynaV to IrynaV
+[33m9b99b12[m HEAD@{24}: checkout: moving from IrynaV to IrynaV
+[33m9b99b12[m HEAD@{25}: commit (merge): ''
+[33m736b4b6[m HEAD@{26}: commit: ''
+[33mbe593cb[m HEAD@{27}: checkout: moving from IrynaV to IrynaV
+[33mbe593cb[m HEAD@{28}: commit: ''
+[33m0d8f938[m HEAD@{29}: checkout: moving from IrynaV to IrynaV
+[33m0d8f938[m HEAD@{30}: reset: moving to origin/master
+[33m20d2dd9[m HEAD@{31}: checkout: moving from master to IrynaV
+[33m0d8f938[m HEAD@{32}: reset: moving to HEAD
+[33m0d8f938[m HEAD@{33}: reset: moving to HEAD
+[33m0d8f938[m HEAD@{34}: reset: moving to HEAD
+[33m0d8f938[m HEAD@{35}: reset: moving to HEAD
+[33m0d8f938[m HEAD@{36}: pull origin master: Fast-forward
+[33m2202339[m HEAD@{37}: checkout: moving from IrynaV to master
+[33m20d2dd9[m HEAD@{38}: commit: ''
+[33m3de9c5d[m HEAD@{39}: checkout: moving from IrynaV to IrynaV
+[33m3de9c5d[m HEAD@{40}: checkout: moving from master to IrynaV
+[33m2202339[m HEAD@{41}: checkout: moving from IrynaV to master
+[33m3de9c5d[m HEAD@{42}: checkout: moving from master to IrynaV
+[33m2202339[m HEAD@{43}: pull origin master: Fast-forward
+[33m72599d1[m HEAD@{44}: checkout: moving from master to master
+[33m72599d1[m HEAD@{45}: pull origin master: Fast-forward
+[33m1424b33[m HEAD@{46}: checkout: moving from IrynaV to master
+[33m3de9c5d[m HEAD@{47}: commit: 'editFormController'
+[33m9166d0d[m HEAD@{48}: checkout: moving from IrynaV to IrynaV
+[33m9166d0d[m HEAD@{49}: commit: commit
+[33m1424b33[m HEAD@{50}: checkout: moving from master to IrynaV
+[33m1424b33[m HEAD@{51}: checkout: moving from IrynaV to master
+[33m1424b33[m HEAD@{52}: checkout: moving from master to IrynaV
+[33m1424b33[m HEAD@{53}: checkout: moving from IrynaV to master
+[33m1424b33[m HEAD@{54}: checkout: moving from master to IrynaV
+[33m1424b33[m HEAD@{55}: checkout: moving from IrynaV to master
+[33m1424b33[m HEAD@{56}: checkout: moving from master to IrynaV
+[33m1424b33[m HEAD@{57}: reset: moving to origin/master
+[33m1424b33[m HEAD@{58}: checkout: moving from IrynaV to master
+[33m1424b33[m HEAD@{59}: checkout: moving from master to IrynaV
+[33m1424b33[m HEAD@{60}: reset: moving to origin/master
+[33m493f763[m HEAD@{61}: checkout: moving from master to master
+[33m493f763[m HEAD@{62}: clone: from https://github.com/JavaProjectA17/shelter.git

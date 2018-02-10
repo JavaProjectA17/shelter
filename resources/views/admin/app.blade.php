@@ -45,21 +45,19 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+    <link rel="stylesheet" href="/css/button_remove_style.css">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
     <header class="main-header">
         <!-- Logo -->
-        <a href="{{route('home')}}" class="logo"> {{--<---------------------------------------------------------------------------------This link redirects to home page--}}
 
-            <span class="logo-lg"><b>Nursery</b>_Admin</span>
-        </a>
         <!-- Header Navbar: style can be found in header.less -->
         <nav class="navbar navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-
                     <!-- Collapsed Hamburger -->
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
                         <span class="sr-only">Toggle Navigation</span>
@@ -67,8 +65,6 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -86,12 +82,9 @@
                                     <span class="caret"></span>
                                 </a>
 
-
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                             Logout
                                         </a>
 
@@ -125,43 +118,56 @@
             <!-- sidebar menu: : style can be found in sidebar.less -->
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">MAIN NAVIGATION</li>
-                <li class="active treeview">
 
-                    <a href="#">{{--<---------------------------------------------------------------------------------This link redirects to dashboard panel--}}
-                        <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+                <li>
+
+                    <a href="{{route('home')}}">
+                        <i class="fa fa-dashboard"></i> <span>Home</span>
                         <span class="pull-right-container">
 
             </span>
                     </a>
                 </li>
+
                 <li >
-                    <a href="/admin/novelties">
+                    <a href="{{route('admin.novelties.index')}}">
                         <i class="fa  fa-tags"></i>
                         <span>News</span>
-                        <span class="pull-right-container">
-                        </span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{{ route('admin.users.index') }}">
                         <i class="fa  fa-users"></i> <span>Users</span>
-                        <span class="pull-right-container">
-            </span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li>
-                    <a href="/admin/animalcategorys">
+                    <a href="{{route('admin.animalcategorys.index')}}">
                         <i class="fa fa-list"></i>
                         <span>Categories</span>
-                        <span class="pull-right-container">
-            </span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
                 <li >
                     <a href="{{route('admin.animals.index')}}">
-                        <i class="fa fa-qq"></i> <span>Animal</span>
-                        <span class="pull-right-container">
-            </span>
+                        <i class="fa fa-qq"></i>
+                        <span>Animal</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <li >
+                    <a href="{{route('admin.shelters.index')}}">
+                        <i class="fa fa-qq"></i>
+                        <span>Shelters</span>
+                        <span class="pull-right-container"></span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{route('admin.slider.index')}}">
+                        <i class="fa fa-caret-square-o-right"></i>
+                        <span>Slider</span>
+                        <span class="pull-right-container"></span>
                     </a>
                 </li>
             </ul>
@@ -171,7 +177,7 @@
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
+        <br><br>
 
     @yield('content')
 

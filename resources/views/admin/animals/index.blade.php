@@ -3,9 +3,11 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-9 col-md-offset-2">
+            <div class="col-md-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Animals</div>
+                    <div class="panel-heading">
+                        <h3>Animals Table</h3>
+                    </div>
 
                     <div class="panel-body">
                         @if (session('message'))
@@ -18,7 +20,7 @@
                         <table class="table table-bordered">
                             <thead>
                             <tr>
-                                <th>Pet name</th>
+                                <th>Name</th>
                                 <th>Image</th>
                                 <th>About</th>
                                 @can('update', \App\Animal::class)

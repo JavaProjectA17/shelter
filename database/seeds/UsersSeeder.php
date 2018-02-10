@@ -19,7 +19,14 @@ class UsersSeeder extends Seeder
             'role' => 'admin'
         ]);
 
-        factory(App\User::class, 10)->create([
+        User::create([
+            'name' => 'user',
+            'email' => 'user@user.com',
+            'password' => bcrypt('user'),
+            'role' => 'user'
+        ]);
+
+        factory(App\User::class, 40)->create([
             'role' => 'user',
         ]);
 
