@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/user/css/new.css">
 <script src="/user/js/jquery-migrate-1.1.1.js"></script>
 <script src="/user/js/superfish.js"></script>
 <script src="/user/js/jquery.equalheights.js"></script>
