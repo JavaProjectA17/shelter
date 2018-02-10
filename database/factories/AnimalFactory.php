@@ -17,6 +17,8 @@ $factory->define(App\Animal::class, function (Faker $faker) {
     return [
         'name'=>$faker->name(),
         'image'=>'/admin/images/default_img.jpg',
-        'about'=>$faker->text(25)
+        'about'=>$faker->text(25),
+        'shelter_id'=>1,
+        'category_id'=>1
     ];
 });
