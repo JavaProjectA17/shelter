@@ -3,7 +3,7 @@
     <li> <span>
           <time datetime="2045-01-01">26<span>APR</span></time>
           </span>
-        <div class="extra_wrapper">
+        <div class="extra_wrapper ">
             <div class="col1"><a href="#">Duis posuere consectetur pellentesqe</a></div>
             Sed nisi turpis, pellentesque at ultricese in dapibus in magna. Nunc easi cipit eu ante. Nullam vitae dolor. <a href="#" class="col2">Read More</a> </div>
     </li>
