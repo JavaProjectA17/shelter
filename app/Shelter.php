@@ -14,7 +14,7 @@ class Shelter extends Model
     public static function add($values, $id) {
         $shelter = new static();
         $shelter->fill($values);
-        $shelter->user_id = $id;
+       // $shelter->user_id = $id;
         $shelter->save();
 
         return $shelter;
