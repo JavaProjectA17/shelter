@@ -4,6 +4,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Animal;
+use App\News;
 use App\Shelter;
 use App\Novelty;
 
@@ -34,6 +35,17 @@ class MainController extends Controller
         //dd($new);
         return view('main.new', ['news'=>$news]);
     }
+
+ public function showNew($id)
+    {
+        $news = News::where("id", "=", $id)->get(["title", "about", "image"]);
+         //dd($news);        
+        return view('main.showNew', [
+            "news" => $news 
+        ]);
+
+    }
+
 
     public function contacts()
     {
